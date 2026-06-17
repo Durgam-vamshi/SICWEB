@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Our Services - Sapphire Intelligence</title>
+  
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'brand-navy': '#1A1B41',
+            'brand-blue': '#2563EB',
+            'sic-blue': '#2E3192',
+            'sic-dark': '#1F2937',
+            'sic-bg': '#FAFAFC',
+            'deep-navy': '#0B132B',
+          },
+          fontFamily: {
+            'serif': ['"Playfair Display"', 'serif'],
+            'sans': ['Inter', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  
+  <link rel="stylesheet" href="css/styles.css">
+  
+  <style>
+    .row-border {
+      border-top: 1px solid #1A1B41;
+    }
+    .service-row:hover .service-title {
+      color: #2563EB;
+    }
+    .service-row:hover .service-icon {
+      transform: scale(1.1);
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+    }
+    .card-hover-effect {
+      transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    }
+    .card-hover-effect:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="index.html" class="navbar-logo">Sapphire Intelligence</a>
+      
+      <div class="navbar-menu">
+        <a href="index.html" class="navbar-link">Home</a>
+        
+        <div class="dropdown">
+          <span class="navbar-link dropdown-trigger">
+            Services
+            <span class="material-symbols-outlined" style="font-size: 1.125rem;">expand_more</span>
+          </span>
+          <div class="dropdown-menu">
+            <a href="services-healthcare.html" class="dropdown-item">
+              Healthcare Consulting
+              <span>Clinical operations & revenue cycle</span>
+            </a>
+            <a href="services-pharma.html" class="dropdown-item">
+              Pharmaceutical Consulting
+              <span>Regulatory & commercial strategy</span>
+            </a>
+            <a href="services-real-estate.html" class="dropdown-item">
+              Real Estate Consulting
+              <span>AI-enabled advisory & branding</span>
+            </a>
+            <a href="services-d2c.html" class="dropdown-item">
+              D2C Consulting
+              <span>Omnichannel growth & scaling</span>
+            </a>
+            <a href="services-general.html" class="dropdown-item">
+              General Business
+              <span>Corporate strategy & transformation</span>
+            </a>
+          </div>
+        </div>
+        
+        <a href="about.html" class="navbar-link">About</a>
+        <a href="insights.html" class="navbar-link">Insights</a>
+        <a href="casestudies_combined.html" class="navbar-link">Case Studies</a>
+      </div>
+      
+      <a href="contact.html" class="navbar-cta">Contact Us</a>
+      
+      <div class="mobile-menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <main class="page-content">
+    
+    <!-- Hero Section -->
+    <section class="relative bg-brand-navy text-white py-24 px-6">
+      <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#2563EB 1px, transparent 1px); background-size: 24px 24px;"></div>
+      <div class="max-w-6xl mx-auto relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <span class="text-blue-400 text-xs font-bold tracking-[0.3em] uppercase mb-4 block">OUR SERVICES</span>
+            <h1 class="text-4xl md:text-6xl font-serif leading-tight mb-6">
+              Strategic Advisory.<br>
+              <span class="italic font-light">Execution Excellence.</span>
+            </h1>
+            <p class="text-gray-300 text-lg leading-relaxed max-w-xl">
+              We partner with mid-to-large hospitals, pharmaceutical companies, real estate developers, scaling D2C brands, and growth-oriented businesses to solve complex challenges and unlock sustainable growth.
+            </p>
+          </div>
+          <div class="grid grid-cols-2 gap-6">
+            <div class="glass-card p-6 text-center">
+              <span class="text-4xl font-serif text-white block mb-2">$250M+</span>
+              <span class="text-xs text-gray-400 uppercase tracking-wider">Capital Deployed</span>
+            </div>
+            <div class="glass-card p-6 text-center">
+              <span class="text-4xl font-serif text-white block mb-2">98%</span>
+              <span class="text-xs text-gray-400 uppercase tracking-wider">Delivery Rate</span>
+            </div>
+            <div class="glass-card p-6 text-center">
+              <span class="text-4xl font-serif text-white block mb-2">15+</span>
+              <span class="text-xs text-gray-400 uppercase tracking-wider">Active Engagements</span>
+            </div>
+            <div class="glass-card p-6 text-center">
+              <span class="text-4xl font-serif text-white block mb-2">5</span>
+              <span class="text-xs text-gray-400 uppercase tracking-wider">Industry Sectors</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section class="py-20 px-6 bg-white">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-serif text-brand-navy mb-16 text-center">Our Service Offerings</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          
+          <!-- Healthcare -->
+          <a href="services-healthcare.html" class="group card-hover-effect">
+            <div class="bg-brand-gray-bg rounded-lg overflow-hidden h-full">
+              <div class="h-48 overflow-hidden">
+                <img alt="Healthcare" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAP-3FVWgB8yM4-aRjl1u-9GEOK931QF9nwZ4FGnbMSPJbeNaCWSCoxsgYG_n__A7LCFW8X_RlSClRbxS2yz1BsGJpx5Di8Vxk_OWhE_RiN50P_BmDjebPXOJPjuvXHLbbh6xpQaB_Jqx8V7VLGArzaAfIzZ-XTA5De3SBl7uS8cRbWAfwOXEDrYx07s2eunNyVLfs8t8tzGN8vEpdoVONCzYt-3GhOecezrYbu7GH8NWHl9OYrAr3pVT6TjBMGxA8mAB0M-_7SCya">
+              </div>
+              <div class="p-6">
+                <span class="text-xs font-bold text-brand-blue uppercase tracking-wider mb-2 block">01</span>
+                <h3 class="text-xl font-serif text-brand-navy mb-3">Healthcare Consulting</h3>
+                <p class="text-sm text-gray-600 leading-relaxed mb-4">Clinical operations redesign, revenue cycle optimization, Health-Tech strategy, compliance, and branding for hospitals and healthcare groups.</p>
+                <span class="text-brand-blue text-sm font-semibold flex items-center gap-2 group-hover:gap-4 transition-all">
+                  Learn More
+                  <span class="material-symbols-outlined text-lg">arrow_forward</span>
+                </span>
+              </div>
+            </div>
+          </a>
+          
+          <!-- Pharmaceutical -->
+          <a href="services-pharma.html" class="group card-hover-effect">
+            <div class="bg-brand-gray-bg rounded-lg overflow-hidden h-full">
+              <div class="h-48 overflow-hidden">
+                <img alt="Pharmaceutical" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcs5brw1oJQ9DOxAylV5dHOl8ktTQTbO6yvlMZ9Jqt-XLpOgVvcMsuhPJAS6SkM-hma6W5UcRVvnpsbHCkr5QJXalG_CU0gfL6YqK98F5eKB3XHFJ8zfJ3S3vIu5hiWC_LTBZ1nxQFXhMsa8s0iPKA9Htg0Fs2QnQiSh6Zl1FlKvE3aEWURIP92YEQnZxH-ZyeWsg6b4Y095ASEEMH5I2x9nfvuvU3jIR3MJupRyFsPJCqYXZuozZNXj8baF1waaQMFIvop2tUWcGR">
+              </div>
+              <div class="p-6">
+                <span class="text-xs font-bold text-brand-blue uppercase tracking-wider mb-2 block">02</span>
+                <h3 class="text-xl font-serif text-brand-navy mb-3">Pharmaceutical Consulting</h3>
+                <p class="text-sm text-gray-600 leading-relaxed mb-4">Pipeline strategy, regulatory affairs, commercial launches, and supply chain resilience for pharmaceutical companies.</p>
+                <span class="text-brand-blue text-sm font-semibold flex items-center gap-2 group-hover:gap-4 transition-all">
+                  Learn More
+                  <span class="material-symbols-outlined text-lg">arrow_forward</span>
+                </span>
+              </div>
+            </div>
+          </a>
+          
+          <!-- Real Estate -->
+          <a href="services-real-estate.html" class="group card-hover-effect">
+            <div class="bg-brand-gray-bg rounded-lg overflow-hidden h-full">
+              <div class="h-48 overflow-hidden">
+                <img alt="Real Estate" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPrysEnPsvN8H9myWF6At-0a0gZcvL0-u7qVZsAlJbyup0I4xPyRpSavC9-Im0CwX2e9clnUv1c2k0S9-Eso-ZhF3quvW326i_bN2IQsX5c4EHZmq20u0a-SzHV-lE7FZil0tiY728q9yktWg4SkoqSzEKfolHZE9MAxBzM4a2bjhAArIbHWlPe3DBOfPC9-D_i0FP7enQY5nfzybE_ArJjFRiegIaEkOOodyyGye1z77RW_v2XukweAMLvNph1UNOCBpuTQR5Pdwh">
+              </div>
+              <div class="p-6">
+                <span class="text-xs font-bold text-brand-blue uppercase tracking-wider mb-2 block">03</span>
+                <h3 class="text-xl font-serif text-brand-navy mb-3">Real Estate Consulting</h3>
+                <p class="text-sm text-gray-600 leading-relaxed mb-4">AI-enabled advisory, branding & marketing, project strategy, and operational excellence for commercial and residential projects.</p>
+                <span class="text-brand-blue text-sm font-semibold flex items-center gap-2 group-hover:gap-4 transition-all">
+                  Learn More
+                  <span class="material-symbols-outlined text-lg">arrow_forward</span>
+                </span>
+              </div>
+            </div>
+          </a>
+          
+          <!-- D2C -->
+          <a href="services-d2c.html" class="group card-hover-effect">
+            <div class="bg-brand-gray-bg rounded-lg overflow-hidden h-full">
+              <div class="h-48 overflow-hidden">
+                <img alt="D2C Brands" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6oIHGaZ7hj9cav3Q7xw_90ptcfUnDix8QDxc5eXeDUHN2jEVaJQMg3PtQsLm2JAjC6_zZjONNr5dZVByPGo3JR28z-RJnkvtUBZIhtZvQHCR83r-yfFgj4d3kv9c4ALFbTJnZIRcf8bR0Kqut0BmZTsP2UTI9fpoWzTd6UmroZ6Z-zktqGVxYpRYOXXJYmg7os12xE6IEF67ed9w3FmpQ_KMa4M85dKprrzbpWIkL5DNyKfkACe3rrmMFrKsyV9MxaJKIyWy_Fs0g">
+              </div>
+              <div class="p-6">
+                <span class="text-xs font-bold text-brand-blue uppercase tracking-wider mb-2 block">04</span>
+                <h3 class="text-xl font-serif text-brand-navy mb-3">D2C Consulting</h3>
+                <p class="text-sm text-gray-600 leading-relaxed mb-4">Brand positioning, omnichannel growth, unit economics, and scalable operations for direct-to-consumer brands.</p>
+                <span class="text-brand-blue text-sm font-semibold flex items-center gap-2 group-hover:gap-4 transition-all">
+                  Learn More
+                  <span class="material-symbols-outlined text-lg">arrow_forward</span>
+                </span>
+              </div>
+            </div>
+          </a>
+          
+          <!-- General Business -->
+          <a href="services-general.html" class="group card-hover-effect">
+            <div class="bg-brand-gray-bg rounded-lg overflow-hidden h-full">
+              <div class="h-48 overflow-hidden bg-brand-navy flex items-center justify-center">
+                <span class="material-symbols-outlined text-white/30 text-6xl">corporate_fare</span>
+              </div>
+              <div class="p-6">
+                <span class="text-xs font-bold text-brand-blue uppercase tracking-wider mb-2 block">05</span>
+                <h3 class="text-xl font-serif text-brand-navy mb-3">General Business Consulting</h3>
+                <p class="text-sm text-gray-600 leading-relaxed mb-4">Corporate strategy, organizational design, financial performance, and transformation for mid-market businesses.</p>
+                <span class="text-brand-blue text-sm font-semibold flex items-center gap-2 group-hover:gap-4 transition-all">
+                  Learn More
+                  <span class="material-symbols-outlined text-lg">arrow_forward</span>
+                </span>
+              </div>
+            </div>
+          </a>
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 px-6 bg-brand-gray-bg">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-serif text-brand-navy mb-6">Ready to Transform Your Business?</h2>
+        <p class="text-gray-600 text-lg mb-8 max-w-2xl mx-auto">Schedule a consultation with our team to discuss how Sapphire Intelligence can help you achieve your strategic objectives.</p>
+        <a href="contact.html" class="inline-flex items-center gap-2 bg-brand-navy text-white px-8 py-4 rounded-lg font-semibold hover:bg-gray-900 transition-colors">
+          Schedule a Strategy Call
+          <span class="material-symbols-outlined">arrow_forward</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-[#1A1B41] text-white mt-auto w-full flex flex-col justify-end">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-16 pb-12">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-y-12 md:gap-x-12 items-start">
+        <div class="md:col-span-4 flex flex-col justify-start">
+          <div class="mb-6">
+            <span class="font-semibold text-2xl text-white tracking-tight">Sapphire<br>Intelligence</span>
+          </div>
+          <p class="text-lg text-gray-400 max-w-xs leading-relaxed">
+            Strategic Execution<br>for High-Stakes<br>Capital
+          </p>
+        </div>
+        
+        <div class="md:col-span-2">
+          <h3 class="text-white font-semibold uppercase tracking-widest text-[10px] mb-8">Expertise</h3>
+          <ul class="space-y-4">
+            <li><a class="text-gray-400 hover:text-white transition-colors duration-200 block text-sm" href="services-healthcare.html">Healthcare</a></li>
+            <li><a class="text-gray-400 hover:text-white transition-colors duration-200 block text-sm" href="services-pharma.html">Pharma</a></li>
+            <li><a class="text-gray-400 hover:text-white transition-colors duration-200 block text-sm" href="services-d2c.html">D2C</a></li>
+            <li><a class="text-gray-400 hover:text-white transition-colors duration-200 block text-sm" href="services-real-estate.html">Real Estate</a></li>
+            <li><a class="text-gray-400 hover:text-white transition-colors duration-200 block text-sm" href="services-general.html">General Business</a></li>
+          </ul>
+        </div>
+        
+        <div class="md:col-span-3">
+          <h3 class="text-white font-semibold uppercase tracking-widest text-[10px] mb-8">Office</h3>
+          <div class="space-y-6 text-gray-400">
+            <div>
+              <p class="text-white font-medium text-sm">Hyderabad</p>
+              <p class="text-[11px] mt-1 uppercase tracking-wider leading-relaxed">1-10-176, Mayur Marg,<br>Begumpet, Hyderabad,<br>Telangana 500016</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="md:col-span-3">
+          <h3 class="text-white font-semibold uppercase tracking-widest text-[10px] mb-8">Newsletter</h3>
+          <form class="flex flex-col">
+            <div class="flex items-center border-b border-gray-700 pb-2">
+              <input class="bg-transparent border-none focus:ring-0 text-sm text-white placeholder-white w-full p-0" placeholder="Email Address" type="email">
+              <button class="text-white hover:text-gray-300 flex items-center justify-center ml-2" type="submit">
+                <span class="material-symbols-outlined text-lg">arrow_forward</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    
+    <div class="w-full border-t border-white/10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] text-gray-500 uppercase tracking-widest">
+        <div class="text-center md:text-left">© 2024 Sapphire Intelligence Consulting. All rights reserved.</div>
+        <nav aria-label="Legal">
+          <ul class="flex flex-wrap justify-center md:justify-end items-center gap-x-8 gap-y-2">
+            <li><a class="hover:text-white transition-colors whitespace-nowrap" href="#">Privacy Policy</a></li>
+            <li><a class="hover:text-white transition-colors whitespace-nowrap" href="#">Terms of Service</a></li>
+            <li><a class="hover:text-white transition-colors whitespace-nowrap" href="#">Cookie Settings</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/scripts.js"></script>
+</body>
+</html>

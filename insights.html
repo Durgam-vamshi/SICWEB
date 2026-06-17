@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Insights & Thought Leadership - Sapphire Intelligence</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "brand-navy": "#1A1B41",
+            "brand-blue": "#2563EB",
+            "brand-text": "#334155",
+            "brand-border": "#E2E8F0",
+            "brand-gray-bg": "#F8F9FA",
+            "background": "#f8f9fa",
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'serif'],
+            sans: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .article-row:hover .article-title { color: #2563EB; }
+    .article-row:hover .arrow-icon { transform: translateX(4px); color: #2563EB; }
+    .article-row:focus-visible { outline: 2px solid #2563EB; outline-offset: 4px; border-radius: 5px; }
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; display: inline-block; vertical-align: middle; }
+    .insight-modal { position: fixed; inset: 0; z-index: 2000; display: none; align-items: center; justify-content: center; padding: 1.25rem; background: rgba(11, 19, 43, 0.72); }
+    .insight-modal.is-open { display: flex; }
+    .insight-modal-panel { position: relative; width: min(920px, 100%); max-height: calc(100vh - 2.5rem); overflow-y: auto; background: #ffffff; border: 1px solid #E2E8F0; border-radius: 5px; box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28); }
+    .insight-modal-close { position: absolute; top: 0.875rem; right: 0.875rem; z-index: 2; width: 2.25rem; height: 2.25rem; display: inline-flex; align-items: center; justify-content: center; border-radius: 999px; background: rgba(255, 255, 255, 0.94); color: #1A1B41; border: 1px solid #E2E8F0; cursor: pointer; }
+    .insight-modal-close:hover { color: #2563EB; }
+    .insight-modal-image { width: 100%; aspect-ratio: 16 / 7; object-fit: cover; filter: grayscale(100%); }
+    .insight-modal-content { padding: 2rem; }
+    .insight-modal-kicker { color: #2563EB; font-family: Inter, sans-serif; font-size: 0.78rem; line-height: 1.25; letter-spacing: 0.08em; font-weight: 600; text-transform: uppercase; margin-bottom: 0.65rem; }
+    .insight-modal-title { color: #1A1B41; font-family: 'Playfair Display', serif; font-size: clamp(1.875rem, 4vw, 2.75rem); line-height: 1.12; font-weight: 500; margin-bottom: 1rem; }
+    .insight-modal-deck { color: #334155; opacity: 0.82; font-size: 1rem; line-height: 1.7; max-width: 42rem; margin-bottom: 1.5rem; }
+    .insight-modal-body { color: #334155; font-size: 1rem; line-height: 1.8; }
+    .insight-modal-body p { margin-bottom: 1rem; }
+    .insight-modal-body h3 { color: #1A1B41; font-family: 'Playfair Display', serif; font-size: 1.35rem; line-height: 1.35; font-weight: 600; margin: 1.5rem 0 0.75rem; }
+    .insight-modal-body ul { margin: 0.25rem 0 1.25rem 1.1rem; }
+    .insight-modal-body li { margin-bottom: 0.55rem; }
+    @media (max-width: 640px) {
+      .insight-modal { padding: 0.75rem; align-items: flex-start; }
+      .insight-modal-panel { max-height: calc(100vh - 1.5rem); }
+      .insight-modal-image { aspect-ratio: 16 / 10; }
+      .insight-modal-content { padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body class="bg-background font-sans text-brand-text antialiased">
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="index.html" class="navbar-logo">Sapphire Intelligence</a>
+      <div class="navbar-menu">
+        <a href="index.html" class="navbar-link">Home</a>
+        <div class="dropdown">
+          <span class="navbar-link dropdown-trigger">Services<span class="material-symbols-outlined" style="font-size: 1.125rem;">expand_more</span></span>
+          <div class="dropdown-menu">
+            <a href="services-healthcare.html" class="dropdown-item">Healthcare Consulting<span>Clinical operations & revenue cycle</span></a>
+            <a href="services-pharma.html" class="dropdown-item">Pharmaceutical Consulting<span>Regulatory & commercial strategy</span></a>
+            <a href="services-real-estate.html" class="dropdown-item">Real Estate Consulting<span>AI-enabled advisory & branding</span></a>
+            <a href="services-d2c.html" class="dropdown-item">D2C Consulting<span>Omnichannel growth & scaling</span></a>
+            <a href="services-general.html" class="dropdown-item">General Business<span>Corporate strategy & transformation</span></a>
+          </div>
+        </div>
+        <a href="about.html" class="navbar-link">About</a>
+        <a href="insights.html" class="navbar-link">Insights</a>
+        <a href="casestudies_combined.html" class="navbar-link">Case Studies</a>
+      </div>
+      <a href="contact.html" class="navbar-cta">Contact Us</a>
+      <div class="mobile-menu-toggle"><span></span><span></span><span></span></div>
+    </div>
+  </nav>
+
+  <main class="page-content">
+    <section class="mx-auto px-8 py-12 flex flex-col max-w-6xl">
+      <div>
+        <header class="mb-8 border-b border-brand-border pb-4">
+          <h1 class="text-4xl md:text-5xl text-brand-navy mb-4" style="font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 500; letter-spacing: -0.01em; line-height: 1.2;">Insights & Thought Leadership</h1>
+          <p class="max-w-2xl text-brand-text opacity-90 leading-relaxed">Stay ahead with perspectives from Sapphire Intel Consulting on strategy, industry trends, and growth best practices.</p>
+        </header>
+
+        <section class="flex flex-col lg:grid lg:grid-cols-12 lg:gap-12">
+          <div class="lg:col-span-7">
+            <div class="article-row group cursor-pointer border-b border-brand-border pb-6 flex flex-col transition-all duration-300 gap-6 h-full" data-insight="nabh" role="button" tabindex="0" aria-label="Read Navigating NABH Accreditation in 2026: Beyond Compliance">
+              <div class="w-full aspect-[16/9] overflow-hidden">
+                <img alt="Medical facility corridor" class="w-full h-full object-cover rounded-[5px] grayscale group-hover:grayscale-0 transition-all duration-300 shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDT7MpgwoWmooWiQcehA_gTAKdGEurkfa2t-N1sMCZCHzT1Zq-fBvSze3QNaZ5rZrzaWuXXmtMLDTT4ZTaICygor2uSSOvqpVe0UK9S9YxOOFIZdHytBXCoC8ggxKDmm8jYQ946Gl6V9hnA7GLUDQfPETCSKKD6mfP4DB4SYY-8clfNW5oRQPXi5h5uz7DPGguae99YPitCyvJyCu9FBTZYm2CMS4RzOKK4zAc3PB5VvOVptyr2koj2X0GseqDYc9ql6YxDrckWXOTm">
+              </div>
+              <div>
+                <span class="text-xs uppercase tracking-widest block mb-2" style="color: #2563EB; font-family: Inter, sans-serif; font-size: 14px; line-height: 1.25; letter-spacing: 0.02em; font-weight: 500;">Healthcare</span>
+                <h2 class="article-title text-3xl text-brand-navy font-semibold transition-colors duration-300 leading-tight mb-3" style="font-family: 'Playfair Display', serif;">Navigating NABH Accreditation in 2026: Beyond Compliance</h2>
+                <p class="text-brand-text text-base opacity-70 leading-relaxed">Exploring the next frontier of quality standards in Indian healthcare systems.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5 flex flex-col gap-4 overflow-y-auto">
+            <div class="article-row group cursor-pointer border-b border-brand-border pb-4 flex justify-between items-center transition-all duration-300 gap-4" data-insight="d2c" role="button" tabindex="0" aria-label="Read Unit Economics Mastery for D2C Brands in India">
+              <div class="flex-1">
+                <span class="text-xs uppercase tracking-widest block mb-1" style="color: #2563EB; font-family: Inter, sans-serif; font-size: 14px; line-height: 1.25; letter-spacing: 0.02em; font-weight: 500;">Consumer Goods</span>
+                <h2 class="article-title text-lg text-brand-navy font-semibold transition-colors duration-300 leading-tight mb-1" style="font-family: 'Playfair Display', serif;">Unit Economics Mastery for D2C Brands in India</h2>
+                <p class="text-brand-text text-xs opacity-70 line-clamp-1">Key metrics and scaling strategies for the modern digital-first retail landscape.</p>
+              </div>
+              <div class="w-20 h-14 flex-shrink-0">
+                <img alt="D2C Storefront" class="w-full h-full object-cover rounded-[5px] grayscale group-hover:grayscale-0 transition-all duration-300 shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSyNzvciU-tJf9jv3zocVJmmBmyCJtPkYCjEE1C-JDCZm2O2NhFB7HGILuNQQ6MLVNLX0p3z2OXfNh2Z-fcROkCT230K-jqzkWhNTHo5CQQ0Syh5Mqs2bzvtrK9kBbUoGpoK7SDcaD3LVUK7hog-DteWoHRm17RktlhY7anTHCcjJBtxH13k4UWET2U3kQhMVpBnGWelSrYqMS3kCdSq3lolmwiU3Pm3fibkD7CvF1qKoXw1pQRgs49OUx6HHgDPWxuTSGA3FX_ZCc">
+              </div>
+            </div>
+
+            <div class="article-row group cursor-pointer border-b border-brand-border pb-4 flex justify-between items-center transition-all duration-300 gap-4" data-insight="real-estate-ai" role="button" tabindex="0" aria-label="Read AI in Real Estate: Opportunities and Implementation Roadmap">
+              <div class="flex-1">
+                <span class="text-xs uppercase tracking-widest block mb-1" style="color: #2563EB; font-family: Inter, sans-serif; font-size: 14px; line-height: 1.25; letter-spacing: 0.02em; font-weight: 500;">Technology</span>
+                <h2 class="article-title text-lg text-brand-navy font-semibold transition-colors duration-300 leading-tight mb-1" style="font-family: 'Playfair Display', serif;">AI in Real Estate: Opportunities and Implementation Roadmap</h2>
+                <p class="text-brand-text text-xs opacity-70 line-clamp-1">Leveraging predictive analytics to redefine property management and valuation.</p>
+              </div>
+              <div class="w-20 h-14 flex-shrink-0">
+                <img alt="Glass skyscraper" class="w-full h-full object-cover rounded-[5px] grayscale group-hover:grayscale-0 transition-all duration-300 shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5wc6a7RMWifD1Ss6EsBvOc3VJzpa_oIqWOqxP-v9vhLg_scNVxxljc7b9i9kVAAXxpX5YNcICuXevHrUsvGUsfKLBgoKidvwXE0fzO7knbDI9GPbuCgE2RUJ4gNSRdpNCfXDirgSOmug4yV1Vm2lmuVmH1mevyihnMKoAGXPw_2EJ7A-B4Ct0U1qGBXC50MUpzjGJQCa93XUagvpVxqChZ1r5p6h-RLhBnlc0sdNC-tpM6wXHFzE7U1QsS3WU3DCTi_g87uDREkYb">
+              </div>
+            </div>
+
+            <div class="article-row group cursor-pointer border-b border-brand-border pb-4 flex justify-between items-center transition-all duration-300 gap-4" data-insight="patent-cliffs" role="button" tabindex="0" aria-label="Read Managing Patent Cliffs: Strategic Options for Indian Pharma">
+              <div class="flex-1">
+                <span class="text-xs uppercase tracking-widest block mb-1" style="color: #2563EB; font-family: Inter, sans-serif; font-size: 14px; line-height: 1.25; letter-spacing: 0.02em; font-weight: 500;">Pharmaceuticals</span>
+                <h2 class="article-title text-lg text-brand-navy font-semibold transition-colors duration-300 leading-tight mb-1" style="font-family: 'Playfair Display', serif;">Managing Patent Cliffs: Strategic Options for Indian Pharma</h2>
+                <p class="text-brand-text text-xs opacity-70 line-clamp-1">Strategic diversification and R&D focus during lifecycle transitions.</p>
+              </div>
+              <div class="w-20 h-14 flex-shrink-0">
+                <img alt="Pharmaceutical lab" class="w-full h-full object-cover rounded-[5px] grayscale group-hover:grayscale-0 transition-all duration-300 shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQK8fVkHCDxBnv9rOJZXzYpPcOACqfb3gLOAMrwPsvFcTt9xRqTWv9kanbgBl_5BCuGYONvdNPHbVVHwCNl1tfoStbttIvQHETlYk1E-rG4B8vT0vSm9aapYKOHcF1GxkaeFIkHh2PiNT71kp07dASiPgAVmJxKsr8x4iAoIB1NfF4F3EXZJR94NQ_yF0glaoUetxas3vdtNBu-fcJNDyP5128RDBgCBLaPFlSg5M6SYIB2vC3IjszlI5k-nlNzfEYlPGjBQ6rc-UP">
+              </div>
+            </div>
+
+            <div class="article-row group cursor-pointer border-b border-brand-border pb-4 flex justify-between items-center transition-all duration-300 gap-4" data-insight="family-leadership" role="button" tabindex="0" aria-label="Read Building Resilient Leadership Teams in Family Businesses">
+              <div class="flex-1">
+                <span class="text-xs uppercase tracking-widest block mb-1" style="color: #2563EB; font-family: Inter, sans-serif; font-size: 14px; line-height: 1.25; letter-spacing: 0.02em; font-weight: 500;">Leadership</span>
+                <h2 class="article-title text-lg text-brand-navy font-semibold transition-colors duration-300 leading-tight mb-1" style="font-family: 'Playfair Display', serif;">Building Resilient Leadership Teams in Family Businesses</h2>
+                <p class="text-brand-text text-xs opacity-70 line-clamp-1">Succession planning and governance frameworks for sustainable growth.</p>
+              </div>
+              <div class="w-20 h-14 flex-shrink-0">
+                <img alt="Executive boardroom" class="w-full h-full object-cover rounded-[5px] grayscale group-hover:grayscale-0 transition-all duration-300 shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB45nNI78qQWG6XExD9wmNiZelCRcHavZAQegG_uu5zZkrStAXGIzBYYaIyRaKTyKuXj2YSgBALzQEOFf3YXQ6vGjmpXVBlZtuiiFbDZC4Bs094thMYLoU1z5ryeoZHc_t9RlGEitlbBI7A8qxLLwnuajDM-w8kCDNxZMhArVS6G1OdMpDjlw8AaGcyp1EYFRP3uezuphdOOrezBRLWKkWi9axAwc9wtL9SXpl-KOobFHXkfjMDho0AkFpUjgJoOiw8VKb7DMSNfEuS">
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <footer class="bg-white border border-brand-border px-6 py-4 rounded-[5px] mt-8">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+          <div class="max-w-md">
+            <h3 class="text-lg font-bold text-brand-navy mb-1" style="font-family: Inter, sans-serif; font-size: 16px; line-height: 1.5; letter-spacing: 0; font-weight: 500;">Insight Report</h3>
+            <p class="text-sm text-brand-text opacity-80" style="font-family: Inter, sans-serif; font-size: 14px; line-height: 1.25; letter-spacing: 0.02em; font-weight: 500;">Subscribe to our monthly newsletter for exclusive strategic insights delivered directly to your inbox.</p>
+          </div>
+          <form class="flex w-full md:w-auto gap-2" onsubmit="event.preventDefault(); alert('Thank you for subscribing.');">
+            <input class="flex-grow md:w-64 px-4 py-2 bg-background border border-brand-border rounded-[5px] text-sm text-brand-navy focus:outline-none focus:border-brand-blue transition-colors" placeholder="Email Address" required type="email"/>
+            <button class="bg-brand-blue hover:bg-blue-700 text-white px-6 py-2 rounded-[5px] transition-colors duration-300 whitespace-nowrap text-sm font-semibold" type="submit">Subscribe</button>
+          </form>
+        </div>
+      </footer>
+    </section>
+  </main>
+
+  <div class="insight-modal" id="insight-modal" aria-hidden="true">
+    <article class="insight-modal-panel" role="dialog" aria-modal="true" aria-labelledby="insight-modal-title">
+      <button class="insight-modal-close" type="button" aria-label="Close article">
+        <span class="material-symbols-outlined" aria-hidden="true">close</span>
+      </button>
+      <img class="insight-modal-image" id="insight-modal-image" src="" alt="">
+      <div class="insight-modal-content">
+        <div class="insight-modal-kicker" id="insight-modal-category"></div>
+        <h2 class="insight-modal-title" id="insight-modal-title"></h2>
+        <p class="insight-modal-deck" id="insight-modal-deck"></p>
+        <div class="insight-modal-body" id="insight-modal-body"></div>
+      </div>
+    </article>
+  </div>
+
+  <footer class="bg-[#1A1B41] text-white mt-auto w-full flex flex-col justify-end">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-16 pb-12">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-y-12 md:gap-x-12 items-start">
+        <div class="md:col-span-4 flex flex-col justify-start">
+          <div class="mb-6"><span class="font-semibold text-2xl text-white tracking-tight">Sapphire<br>Intelligence</span></div>
+          <p class="text-lg text-gray-400 max-w-xs leading-relaxed">Strategic Execution<br>for High-Stakes<br>Capital</p>
+        </div>
+        <div class="md:col-span-2">
+          <h3 class="text-white font-semibold uppercase tracking-widest text-[10px] mb-8">Expertise</h3>
+          <ul class="space-y-4">
+            <li><a class="text-gray-400 hover:text-white transition-colors duration-200 block text-sm" href="services-healthcare.html">Healthcare</a></li>
+            <li><a class="text-gray-400 hover:text-white transition-colors duration-200 block text-sm" href="services-pharma.html">Pharma</a></li>
+            <li><a class="text-gray-400 hover:text-white transition-colors duration-200 block text-sm" href="services-d2c.html">D2C</a></li>
+            <li><a class="text-gray-400 hover:text-white transition-colors duration-200 block text-sm" href="services-real-estate.html">Real Estate</a></li>
+            <li><a class="text-gray-400 hover:text-white transition-colors duration-200 block text-sm" href="services-general.html">General Business</a></li>
+          </ul>
+        </div>
+        <div class="md:col-span-3">
+          <h3 class="text-white font-semibold uppercase tracking-widest text-[10px] mb-8">Global Offices</h3>
+          <div class="space-y-6 text-gray-400">
+            <div><p class="text-white font-medium text-sm">Hyderabad</p><p class="text-[11px] mt-1 uppercase tracking-wider leading-relaxed">1-10-176, Mayur Marg,<br>Begumpet, Hyderabad,<br>Telangana 500016</p></div>
+          </div>
+        </div>
+        <div class="md:col-span-3">
+          <h3 class="text-white font-semibold uppercase tracking-widest text-[10px] mb-8">Newsletter</h3>
+          <form class="flex flex-col"><div class="flex items-center border-b border-gray-700 pb-2"><input class="bg-transparent border-none focus:ring-0 text-sm text-white placeholder-white w-full p-0" placeholder="Email Address" type="email"><button class="text-white hover:text-gray-300 flex items-center justify-center ml-2" type="submit"><span class="material-symbols-outlined text-lg">arrow_forward</span></button></div></form>
+        </div>
+      </div>
+    </div>
+    <div class="w-full border-t border-white/10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] text-gray-500 uppercase tracking-widest">
+        <div class="text-center md:text-left">© 2024 Sapphire Intelligence Consulting. All rights reserved.</div>
+        <nav aria-label="Legal"><ul class="flex flex-wrap justify-center md:justify-end items-center gap-x-8 gap-y-2"><li><a class="hover:text-white transition-colors whitespace-nowrap" href="#">Privacy Policy</a></li><li><a class="hover:text-white transition-colors whitespace-nowrap" href="#">Terms of Service</a></li><li><a class="hover:text-white transition-colors whitespace-nowrap" href="#">Cookie Settings</a></li></ul></nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/scripts.js"></script>
+  <script>
+    const insightArticles = {
+      "nabh": {
+        category: "Healthcare",
+        title: "Navigating NABH Accreditation in 2026: Beyond Compliance",
+        deck: "Accreditation is no longer a one-time documentation exercise. For hospitals, it is becoming a management system for safer care, better accountability, and measurable operating discipline.",
+        body: `
+          <p>For Indian healthcare providers, NABH accreditation has moved from a badge of credibility to a practical operating requirement. Patients are more informed, payers are more demanding, clinicians expect clearer systems, and hospital boards want quality to show up in outcomes, not just in files. The hospitals that will lead in 2026 are the ones that treat accreditation as a daily rhythm instead of a pre-audit scramble.</p>
+          <p>The first shift is ownership. Quality cannot sit only with a quality manager or accreditation cell. It has to be visible in nursing handovers, consultant documentation, pharmacy controls, infection prevention rounds, biomedical maintenance, and patient feedback loops. When each department understands the standard behind its work, compliance becomes easier because the process itself becomes stronger.</p>
+          <h3>Build the System Before the Survey</h3>
+          <p>A mature NABH journey starts with a gap assessment, but it should not end as a checklist. Leadership teams should identify the few processes that create the highest risk: emergency response, medication safety, consent, infection control, discharge planning, diagnostics turnaround, and incident reporting. These areas deserve clear SOPs, staff training, audit cadence, and visible corrective action.</p>
+          <p>Technology can help, but only when it supports behavior. Dashboards for adverse events, infection rates, TAT, patient complaints, and documentation completeness allow hospital teams to see problems early. The best use of digital tools is not to impress assessors; it is to reduce surprises for management.</p>
+          <h3>What Hospital Leaders Should Prioritize</h3>
+          <ul>
+            <li>Make quality indicators part of monthly business reviews.</li>
+            <li>Train frontline teams in short, repeated modules rather than one-time workshops.</li>
+            <li>Run mock drills and internal audits with real corrective follow-up.</li>
+            <li>Link patient experience data with clinical and operational metrics.</li>
+          </ul>
+          <p>Beyond compliance, NABH can become a framework for trust. It aligns clinical safety, operational consistency, and governance. Hospitals that internalize this will not merely pass an assessment; they will build institutions that are safer, more resilient, and easier to scale.</p>
+        `
+      },
+      "d2c": {
+        category: "Consumer Goods",
+        title: "Unit Economics Mastery for D2C Brands in India",
+        deck: "Growth in D2C is useful only when every order teaches the brand how to scale profitably, retain customers, and protect cash.",
+        body: `
+          <p>India's D2C market rewards speed, but it punishes unclear economics. A brand can look healthy on revenue charts while quietly losing money on acquisition, returns, discounts, fulfillment, and working capital. Unit economics is the discipline that separates campaign-led growth from a business that can compound.</p>
+          <p>The starting point is contribution margin by channel and product, not blended gross margin. A marketplace order, a website order, a quick-commerce order, and an offline order can carry very different costs. Packaging, payment gateway fees, returns, shipping zones, influencer costs, platform commissions, and discounting must be visible at the order level. Without this view, teams often scale the channels that create volume while starving the channels that create value.</p>
+          <h3>The Metrics That Matter</h3>
+          <p>Customer acquisition cost is important, but it is incomplete unless paired with repeat purchase rate and payback period. A high CAC can be acceptable if the product has strong replenishment and repeat behavior. A low CAC can still be dangerous if the first purchase is driven by excessive discounting and never converts into loyalty.</p>
+          <p>Brands should also watch SKU-level profitability. Hero products often carry the brand, but they may not carry the business. Bundles, subscription packs, premium variants, and cross-sells can improve average order value while reducing per-order logistics pressure.</p>
+          <h3>A Practical Scaling Agenda</h3>
+          <ul>
+            <li>Track contribution margin after all variable costs, not only gross margin.</li>
+            <li>Segment customers by cohort, acquisition source, and repeat behavior.</li>
+            <li>Use discounts to change behavior, not to hide weak demand.</li>
+            <li>Plan inventory around cash conversion cycles, not just sales forecasts.</li>
+          </ul>
+          <p>The best D2C founders are not anti-growth. They are precise about growth. They know which cohorts deserve more spend, which SKUs deserve more inventory, and which channels should be optimized before they are scaled. In a crowded market, that precision becomes the brand's operating advantage.</p>
+        `
+      },
+      "real-estate-ai": {
+        category: "Technology",
+        title: "AI in Real Estate: Opportunities and Implementation Roadmap",
+        deck: "Real estate teams can use AI to sharpen decisions across valuation, demand forecasting, sales, leasing, and asset operations, but adoption must begin with usable data and clear business questions.",
+        body: `
+          <p>AI in real estate is often discussed as a future trend, but the practical opportunities are already visible. Developers want better demand signals before launching projects. Asset owners want sharper occupancy and pricing decisions. Property managers want lower downtime, faster issue resolution, and better tenant experience. Sales teams want to identify serious buyers earlier. Each of these problems can benefit from AI when the use case is specific.</p>
+          <p>The most immediate value comes from predictive analytics. Historical sales velocity, micro-market pricing, inventory, lead sources, amenities, construction progress, competitor launches, and macro indicators can be combined to improve forecasting. Instead of relying only on instinct or broker feedback, leadership teams can see which project, tower, unit type, or price band is likely to move faster.</p>
+          <h3>Start With the Operating Questions</h3>
+          <p>AI projects fail when teams begin with tools instead of decisions. A developer does not need "an AI system" in the abstract. It needs answers: Which leads should sales call first? What price revision is justified? Which amenities influence conversion? Where is maintenance spend rising? Which tenants are at risk of churn?</p>
+          <p>Once the question is clear, the data requirement becomes practical. CRM hygiene, project inventory records, customer interaction logs, payment milestones, facility tickets, and campaign data need to be cleaned and connected. This foundation is less glamorous than model selection, but it determines whether the output can be trusted.</p>
+          <h3>An Implementation Roadmap</h3>
+          <ul>
+            <li>Choose one high-value use case with clear commercial impact.</li>
+            <li>Audit available data and fix ownership, quality, and update frequency.</li>
+            <li>Build a pilot dashboard or scoring model for one project or asset.</li>
+            <li>Train teams to use the insight inside existing review meetings.</li>
+          </ul>
+          <p>AI will not replace local market judgment. It will make that judgment sharper, faster, and more consistent. Real estate organizations that adopt it patiently, one decision workflow at a time, will create a measurable edge in pricing, sales efficiency, and asset performance.</p>
+        `
+      },
+      "patent-cliffs": {
+        category: "Pharmaceuticals",
+        title: "Managing Patent Cliffs: Strategic Options for Indian Pharma",
+        deck: "Patent cliffs create pressure, but they also force portfolio discipline, sharper R&D choices, and more thoughtful market entry strategies.",
+        body: `
+          <p>For pharmaceutical companies, a patent cliff is not only a revenue event. It is a strategy test. As exclusivity ends and competition intensifies, organizations must decide where to defend, where to diversify, and where to redeploy capital. Indian pharma companies are especially well positioned to benefit from these shifts, but only if they avoid treating every opportunity as equally attractive.</p>
+          <p>The first task is portfolio mapping. Products nearing loss of exclusivity should be assessed by market size, expected price erosion, manufacturing complexity, regulatory pathway, supply chain risk, and competitive intensity. Some molecules will reward speed. Others will reward differentiation, formulation capability, or niche market access. A disciplined view prevents management teams from over-investing in crowded opportunities with weak margins.</p>
+          <h3>Beyond Generic Entry</h3>
+          <p>Patent cliffs often open the door for generics, but the better question is how to create durable advantage after entry. Complex generics, specialty formulations, biosimilars, differentiated delivery systems, and targeted therapeutic portfolios can offer stronger defensibility than simple volume plays. The right choice depends on the company's scientific capability, regulatory depth, capital appetite, and commercial reach.</p>
+          <p>Indian pharma leaders should also consider partnerships. Co-development, licensing, contract manufacturing, and market access alliances can reduce risk while accelerating entry. In some cases, the most valuable move is not to own every step, but to own the part of the value chain where the company has a clear edge.</p>
+          <h3>Strategic Priorities</h3>
+          <ul>
+            <li>Rank opportunities by expected margin quality, not only market size.</li>
+            <li>Build regulatory and IP review into early portfolio decisions.</li>
+            <li>Protect manufacturing reliability and quality as strategic assets.</li>
+            <li>Balance near-term launches with longer-horizon specialty bets.</li>
+          </ul>
+          <p>Managing a patent cliff well requires speed, but not haste. The winners will be companies that combine regulatory preparedness, manufacturing excellence, and selective ambition. They will use disruption in global portfolios to build stronger, more focused businesses of their own.</p>
+        `
+      },
+      "family-leadership": {
+        category: "Leadership",
+        title: "Building Resilient Leadership Teams in Family Businesses",
+        deck: "Family businesses scale best when leadership roles, governance forums, and succession pathways are made explicit before pressure forces the conversation.",
+        body: `
+          <p>Family businesses often carry deep advantages: trust, speed, long-term commitment, and an owner's instinct for risk. But as the business grows, informal leadership can become a constraint. Decisions that once happened quickly around a table begin to require clearer roles, stronger reporting, and a management team that can operate beyond individual relationships.</p>
+          <p>Resilience starts with separating ownership, family, and management conversations. These three overlap, but they are not the same. Ownership needs clarity on capital allocation, dividends, risk appetite, and succession. Family forums need space for expectations, values, and next-generation involvement. Management forums need accountability for performance, talent, operations, and growth. When all three are mixed together, decisions become personal and execution slows.</p>
+          <h3>Professionalization Without Losing Identity</h3>
+          <p>Many family businesses hesitate to professionalize because they fear losing culture. The better approach is to define what must be preserved and what must evolve. Founder judgment, customer intimacy, and relationship depth can remain central, while reporting systems, delegation, performance reviews, and governance improve around them.</p>
+          <p>Leadership teams should be built around capability, not only loyalty. Trusted insiders remain valuable, but they need clear mandates and measurable outcomes. External leaders can add depth in finance, operations, technology, human resources, or expansion, provided the family gives them decision rights and a fair operating environment.</p>
+          <h3>A Practical Governance Agenda</h3>
+          <ul>
+            <li>Define who decides, who recommends, and who must be consulted on major issues.</li>
+            <li>Create monthly business reviews with reliable numbers and action tracking.</li>
+            <li>Document succession pathways before transition becomes urgent.</li>
+            <li>Prepare next-generation leaders through real operating responsibility.</li>
+          </ul>
+          <p>The goal is not to make a family business look like a corporation. The goal is to protect the strengths of family ownership while giving the enterprise the systems it needs to scale. Resilient leadership is built before conflict, complexity, or succession exposes the gaps.</p>
+        `
+      }
+    };
+
+    const modal = document.getElementById('insight-modal');
+    const modalImage = document.getElementById('insight-modal-image');
+    const modalCategory = document.getElementById('insight-modal-category');
+    const modalTitle = document.getElementById('insight-modal-title');
+    const modalDeck = document.getElementById('insight-modal-deck');
+    const modalBody = document.getElementById('insight-modal-body');
+    const modalClose = modal.querySelector('.insight-modal-close');
+
+    function openInsightArticle(card) {
+      const article = insightArticles[card.dataset.insight];
+      const previewImage = card.querySelector('img');
+
+      if (!article || !previewImage) return;
+
+      modalImage.src = previewImage.src;
+      modalImage.alt = previewImage.alt || article.title;
+      modalCategory.textContent = article.category;
+      modalTitle.textContent = article.title;
+      modalDeck.textContent = article.deck;
+      modalBody.innerHTML = article.body;
+      modal.classList.add('is-open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      modalClose.focus();
+    }
+
+    function closeInsightArticle() {
+      modal.classList.remove('is-open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('[data-insight]').forEach(function(card) {
+      card.addEventListener('click', function() {
+        openInsightArticle(card);
+      });
+
+      card.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          openInsightArticle(card);
+        }
+      });
+    });
+
+    modalClose.addEventListener('click', closeInsightArticle);
+    modal.addEventListener('click', function(event) {
+      if (event.target === modal) {
+        closeInsightArticle();
+      }
+    });
+
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape' && modal.classList.contains('is-open')) {
+        closeInsightArticle();
+      }
+    });
+  </script>
+</body>
+</html>

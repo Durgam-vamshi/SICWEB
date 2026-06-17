@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Contact - Sapphire Intelligence</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "brand-navy": "#1A1B41",
+            "brand-blue": "#2563EB",
+            "brand-text": "#334155",
+            "brand-border": "#E2E8F0",
+            "brand-gray-bg": "#F8F9FA",
+            "background": "#f8f9fa",
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'serif'],
+            sans: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .architectural-bg {
+      background-image: linear-gradient(rgba(248, 249, 250, 0.97), rgba(248, 249, 250, 0.97)), url('https://lh3.googleusercontent.com/aida-public/AB6AXuA7zb8RXJdSea-W9mzIO0dPLDJ0tVXl4NAYcKVxVtDQuGJ6mw2xEJaKxlcOLLbfCCs73MLRv9SrOzuyCWDjcFn7aepUT4ZUQOm5rN2qmvCZ2ONve1HqiSUffZytq9IRR53v7kytcexo9AOsxUJdnkiTt6LdnckH6z8i8MmXOrUju-MvQ6OBsFmPTivdMhQ7mVuNKI1zU-yBdzugTMR_wPCErVIZAlTKzn059OiQIWgcKnOkmxxe6cwQeexIoNF7CSCdEFAilkhd8R4o');
+      background-attachment: fixed;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .form-input {
+      border: 1px solid #E2E8F0;
+      border-radius: 4px;
+      padding: 14px 16px;
+      width: 100%;
+      transition: border-color 0.2s ease;
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: #1A1B41;
+    }
+
+    .material-symbols-outlined {
+      font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;
+    }
+
+    .subtle-grid {
+      background-image: radial-gradient(#1A1B41 0.5px, transparent 0.5px);
+      background-size: 24px 24px;
+      opacity: 0.03;
+    }
+  </style>
+</head>
+
+<body class="architectural-bg">
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="index.html" class="navbar-logo">Sapphire Intelligence</a>
+      <div class="navbar-menu">
+        <a href="index.html" class="navbar-link">Home</a>
+        <div class="dropdown">
+          <span class="navbar-link dropdown-trigger">Services<span class="material-symbols-outlined"
+              style="font-size: 1.125rem;">expand_more</span></span>
+          <div class="dropdown-menu">
+            <a href="services-healthcare.html" class="dropdown-item">Healthcare Consulting<span>Clinical operations &
+                revenue cycle</span></a>
+            <a href="services-pharma.html" class="dropdown-item">Pharmaceutical Consulting<span>Regulatory & commercial
+                strategy</span></a>
+            <a href="services-real-estate.html" class="dropdown-item">Real Estate Consulting<span>AI-enabled advisory &
+                branding</span></a>
+            <a href="services-d2c.html" class="dropdown-item">D2C Consulting<span>Omnichannel growth &
+                scaling</span></a>
+            <a href="services-general.html" class="dropdown-item">General Business<span>Corporate strategy &
+                transformation</span></a>
+          </div>
+        </div>
+        <a href="about.html" class="navbar-link">About</a>
+        <a href="insights.html" class="navbar-link">Insights</a>
+        <a href="casestudies_combined.html" class="navbar-link">Case Studies</a>
+      </div>
+      <a href="contact.html" class="navbar-cta">Contact Us</a>
+      <div class="mobile-menu-toggle"><span></span><span></span><span></span></div>
+    </div>
+  </nav>
+
+  <main class="page-content pb-16">
+    <div class="max-w-[1000px] mx-auto px-6">
+      <!-- Subtle Grid Background -->
+      <div class="absolute inset-0 pointer-events-none subtle-grid"></div>
+
+      <!-- Header -->
+      <div class="pt-16 pb-12 relative">
+        <div class="flex items-center gap-4 mb-8">
+          <div class="w-12 h-[2px] bg-[#2563EB]"></div>
+          <p class="text-[11px] font-medium tracking-[0.2em] text-[#1A1B41]/50 uppercase">Contact</p>
+        </div>
+        <h1 class="text-4xl md:text-5xl text-brand-navy leading-[1.15]"
+          style="font-family: 'Playfair Display', serif; font-weight: 500; letter-spacing: -0.01em;">Let's Start a
+          Conversation</h1>
+      </div>
+
+      <!-- Content Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-16 relative">
+        <!-- Left Column -->
+        <div class="md:col-span-4">
+          <div class="space-y-12">
+            <!-- Contact Details -->
+            <div>
+              <h3 class="text-[11px] font-semibold tracking-[0.15em] text-[#2563EB] uppercase mb-6">Office</h3>
+              <div class="space-y-6">
+                <div>
+                  <p class="text-sm font-medium text-brand-navy mb-1">Hyderabad</p>
+                  <p class="text-sm text-brand-text">1-10-176, Mayur Marg,<br>Begumpet, Hyderabad,<br>Telangana 500016
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Contact Info -->
+            <div>
+              <h3 class="text-[11px] font-semibold tracking-[0.15em] text-[#2563EB] uppercase mb-6">Direct Contact</h3>
+              <div class="space-y-3">
+                <p class="text-sm text-brand-text">Suraj@sapphireintelconsulting.com</p>
+                <p class="text-sm text-brand-text">+91 8309664580</p>
+                <p class="text-sm text-brand-text">WhatsApp: +91 8309664580</p>
+              </div>
+            </div>
+
+            <!-- Expertise Areas -->
+            <div>
+              <h3 class="text-[11px] font-semibold tracking-[0.15em] text-[#2563EB] uppercase mb-6">Expertise</h3>
+              <div class="space-y-3">
+                <p class="text-sm text-brand-text">Strategic Advisory</p>
+                <p class="text-sm text-brand-text">Operational Excellence</p>
+                <p class="text-sm text-brand-text">Digital Transformation</p>
+                <p class="text-sm text-brand-text">Intelligence Services</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column - Form -->
+        <div class="md:col-span-8">
+          <div class="bg-white border border-[#E2E8F0] p-10 relative">
+            <div class="absolute top-0 left-10 w-20 h-[2px] bg-[#2563EB]"></div>
+            <h2 class="text-2xl text-brand-navy mb-8" style="font-family: 'Playfair Display', serif; font-weight: 500;">
+              Submit an Inquiry</h2>
+            <!-- <form class="space-y-6" id="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field"> -->
+            <form class="space-y-6" id="contactForm">
+              <p class="hidden">
+              </p>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="space-y-2">
+                  <label class="text-xs font-medium text-brand-navy tracking-wide" for="first-name">First Name</label>
+                  <input class="form-input" id="first-name" name="first_name" placeholder="John" required type="text" />
+                </div>
+                <div class="space-y-2">
+                  <label class="text-xs font-medium text-brand-navy tracking-wide" for="last-name">Last Name</label>
+                  <input class="form-input" id="last-name" name="last_name" placeholder="Doe" required type="text" />
+                </div>
+              </div>
+              <div class="space-y-2">
+                <label class="text-xs font-medium text-brand-navy tracking-wide" for="email">Corporate Email</label>
+                <input class="form-input" id="email" name="email" placeholder="john.doe@company.com" required
+                  type="email" />
+              </div>
+              <div class="space-y-2">
+                <label class="text-xs font-medium text-brand-navy tracking-wide" for="interest">Area of Interest</label>
+                <select class="form-input appearance-none bg-white bg-no-repeat bg-[right_1rem_center]" id="interest"
+                  name="interest"
+                  style="background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23334155%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E');">
+                  <option>Strategic Advisory</option>
+                  <option>Operational Excellence</option>
+                  <option>Digital Transformation</option>
+                  <option>Intelligence Services</option>
+                </select>
+              </div>
+              <div class="space-y-2">
+                <label class="text-xs font-medium text-brand-navy tracking-wide" for="message">Engagement Brief</label>
+                <textarea class="form-input resize-none" id="message" name="message"
+                  placeholder="Describe your strategic challenge or inquiry..." rows="5"></textarea>
+              </div>
+              <div class="flex items-start gap-3">
+                <input class="mt-0.5 rounded border-[#E2E8F0] text-[#2563EB] focus:ring-0" id="privacy"
+                  name="privacy_consent" value="yes" type="checkbox" required />
+
+                <label class="text-xs text-brand-text leading-relaxed" for="privacy">I agree to the processing of my
+                  personal data by Sapphire Intelligence in accordance with the Privacy Policy.</label>
+              </div>
+              <div class="pt-2">
+                <button
+                  class="bg-[#1A1B41] text-white px-12 py-4 hover:bg-[#0b0d1e] transition-colors duration-200 text-sm font-medium tracking-wide"
+                  type="submit">Submit Inquiry</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-[#1A1B41] text-white mt-auto w-full flex flex-col justify-end">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-16 pb-12">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-y-12 md:gap-x-12 items-start">
+        <div class="md:col-span-4 flex flex-col justify-start">
+          <div class="mb-6"><span
+              class="font-semibold text-2xl text-white tracking-tight">Sapphire<br>Intelligence</span></div>
+          <p class="text-lg text-gray-400 max-w-xs leading-relaxed">Strategic Execution<br>for High-Stakes<br>Capital
+          </p>
+        </div>
+        <div class="md:col-span-2">
+          <h3 class="text-white font-semibold uppercase tracking-widest text-[10px] mb-8">Expertise</h3>
+          <ul class="space-y-4">
+            <li><a class="text-gray-400 hover:text-white transition-colors duration-200 block text-sm"
+                href="services-healthcare.html">Healthcare</a></li>
+            <li><a class="text-gray-400 hover:text-white transition-colors duration-200 block text-sm"
+                href="services-pharma.html">Pharma</a></li>
+            <li><a class="text-gray-400 hover:text-white transition-colors duration-200 block text-sm"
+                href="services-d2c.html">D2C</a></li>
+            <li><a class="text-gray-400 hover:text-white transition-colors duration-200 block text-sm"
+                href="services-real-estate.html">Real Estate</a></li>
+            <li><a class="text-gray-400 hover:text-white transition-colors duration-200 block text-sm"
+                href="services-general.html">General Business</a></li>
+          </ul>
+        </div>
+        <div class="md:col-span-3">
+          <h3 class="text-white font-semibold uppercase tracking-widest text-[10px] mb-8">Global Offices</h3>
+          <div class="space-y-6 text-gray-400">
+            <div>
+              <p class="text-white font-medium text-sm">Hyderabad</p>
+              <p class="text-[11px] mt-1 uppercase tracking-wider leading-relaxed">1-10-176, Mayur Marg,<br>Begumpet,
+                Hyderabad,<br>Telangana 500016</p>
+            </div>
+          </div>
+        </div>
+        <div class="md:col-span-3">
+          <h3 class="text-white font-semibold uppercase tracking-widest text-[10px] mb-8">Newsletter</h3>
+          <form class="flex flex-col">
+            <div class="flex items-center border-b border-gray-700 pb-2"><input
+                class="bg-transparent border-none focus:ring-0 text-sm text-white placeholder-white w-full p-0"
+                placeholder="Email Address" type="email"><button
+                class="text-white hover:text-gray-300 flex items-center justify-center ml-2" type="submit"><span
+                  class="material-symbols-outlined text-lg">arrow_forward</span></button></div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="w-full border-t border-white/10">
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] text-gray-500 uppercase tracking-widest">
+        <div class="text-center md:text-left">© 2024 Sapphire Intelligence Consulting. All rights reserved.</div>
+        <nav aria-label="Legal">
+          <ul class="flex flex-wrap justify-center md:justify-end items-center gap-x-8 gap-y-2">
+            <li><a class="hover:text-white transition-colors whitespace-nowrap" href="#">Privacy Policy</a></li>
+            <li><a class="hover:text-white transition-colors whitespace-nowrap" href="#">Terms of Service</a></li>
+            <li><a class="hover:text-white transition-colors whitespace-nowrap" href="#">Cookie Settings</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/scripts.js"></script>
+
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-app.js";
+import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDy2XA3nKcYlEYDTpqg8VPIsi9lmcvgwPo",
+  authDomain: "sapphire-intelligence-5cf92.firebaseapp.com",
+  projectId: "sapphire-intelligence-5cf92",
+  storageBucket: "sapphire-intelligence-5cf92.firebasestorage.app",
+  messagingSenderId: "303979847227",
+  appId: "1:303979847227:web:b9d4f7013323bae04dc61e"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+const form = document.getElementById("contactForm");
+const btn = form.querySelector('button[type="submit"]');
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  btn.disabled= true;
+  btn.textContent = "Submitting...";
+
+  const firstName = document.getElementById("first-name").value;
+
+  const lastName = document.getElementById("last-name").value;
+  const email = document.getElementById("email").value;
+  const interest = document.getElementById("interest").value;
+  const message = document.getElementById("message").value;
+  const privacy = document.getElementById("privacy").checked;
+
+  try {
+    await addDoc(collection(db, "submissions"), {
+      firstName,
+      lastName,
+      email,
+      interest,
+      message,
+      privacyConsent: privacy,
+      createdAt: new Date()
+    });
+
+
+
+alert("Thank you. Our team will contact you shortly.");
+form.reset();
+
+btn.disabled = false;
+btn.textContent = "Submit Inquiry";
+  }
+
+  catch (err) {
+  console.error("FULL ERROR:", err);
+  alert(err.code + " | " + err.message);
+
+  btn.disabled = false;
+  btn.textContent = "Submit Inquiry";
+}
+});
+</script>
+
+
+
+</body>
+
+</html>
