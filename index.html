@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Sapphire Intelligence - Strategic Advisory</title>
-  
+
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <script src="https://d3js.org/d3.v7.min.js"></script>
   <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-  
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">cl
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    rel="stylesheet">
+
   <script>
     tailwind.config = {
       theme: {
@@ -30,22 +33,39 @@
       }
     }
   </script>
-  
+
   <link rel="stylesheet" href="css/styles.css">
-  
+
   <style>
-    .text-balance { text-wrap: balance; }
-    .carousel-image { opacity: 0; transition: opacity 1s ease-in-out; }
-    .carousel-image.active { opacity: 1; }
-    @keyframes marquee {
-      0% { transform: translateX(0%); }
-      100% { transform: translateX(-50%); }
+    .text-balance {
+      text-wrap: balance;
     }
+
+    .carousel-image {
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .carousel-image.active {
+      opacity: 1;
+    }
+
+    @keyframes marquee {
+      0% {
+        transform: translateX(0%);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
     .animate-marquee {
       animation: marquee 40s linear infinite;
       display: flex;
       width: max-content;
     }
+
     .mosaic-container {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
@@ -55,37 +75,45 @@
       gap: 1px;
       background-color: #0B132B;
     }
+
     .mosaic-card {
       position: relative;
       overflow: hidden;
       background-color: white;
       transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     }
+
     .technical-line {
       position: absolute;
       background-color: rgba(190, 242, 100, 0.3);
       pointer-events: none;
     }
+
     .hover-effect:hover {
       z-index: 10;
       transform: scale(1.01);
     }
+
     .glass-card {
       background-color: rgba(255, 255, 255, 0.9);
       backdrop-filter: blur(8px);
       border-radius: 5px;
       border: 1px solid rgba(226, 232, 240, 0.8);
     }
+
     .card-hover-effect {
       transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
     }
+
     .card-hover-effect:hover {
       transform: translateY(-4px);
       box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
     }
+
     .image-overlay-gradient {
-      background: linear-gradient(to top, rgba(29, 30, 58, 0.9) 0%, rgba(29, 30, 58, 0.4) 50%, rgba(0,0,0,0) 100%);
+      background: linear-gradient(to top, rgba(29, 30, 58, 0.9) 0%, rgba(29, 30, 58, 0.4) 50%, rgba(0, 0, 0, 0) 100%);
     }
+
     /* Globe Animation Styles */
     .globe-pulse-ring {
       position: absolute;
@@ -101,166 +129,424 @@
       transform: translate(-50%, -50%) scale(0.15);
       animation: globe-pulse-ring 3.8s ease-out infinite;
     }
+
     .globe-pulse-ring:nth-child(2) {
       animation-delay: 1.25s;
     }
+
     .globe-pulse-ring:nth-child(3) {
       animation-delay: 2.5s;
     }
+
     @keyframes globe-pulse-ring {
       0% {
         opacity: 0;
         transform: translate(-50%, -50%) scale(0.15);
       }
+
       16% {
         opacity: 0.62;
       }
+
       100% {
         opacity: 0;
         transform: translate(-50%, -50%) scale(2.38);
       }
     }
+
     .globe-hud-grid {
       background-image:
         linear-gradient(to right, rgba(11, 19, 43, 0.02) 1px, transparent 1px),
         linear-gradient(to bottom, rgba(11, 19, 43, 0.02) 1px, transparent 1px);
       background-size: 40px 40px;
     }
+
     .globe-glow-border {
       box-shadow: inset 0 0 0 1px rgba(11, 19, 43, 0.1);
     }
-    .globe-quadrant-sync-1 { animation: quad-sweep-1 4s linear infinite; }
-    .globe-quadrant-sync-2 { animation: quad-sweep-2 4s linear infinite; }
-    .globe-quadrant-sync-3 { animation: quad-sweep-3 4s linear infinite; }
-    .globe-quadrant-sync-4 { animation: quad-sweep-4 4s linear infinite; }
+
+    .globe-quadrant-sync-1 {
+      animation: quad-sweep-1 4s linear infinite;
+    }
+
+    .globe-quadrant-sync-2 {
+      animation: quad-sweep-2 4s linear infinite;
+    }
+
+    .globe-quadrant-sync-3 {
+      animation: quad-sweep-3 4s linear infinite;
+    }
+
+    .globe-quadrant-sync-4 {
+      animation: quad-sweep-4 4s linear infinite;
+    }
+
     @keyframes quad-sweep-1 {
-      0%, 70%, 100% { background-color: transparent; box-shadow: none; border-color: rgba(0, 219, 233, 0.2); }
-      85% { background-color: rgba(0, 219, 233, 0.1); box-shadow: inset 0 0 40px rgba(0, 219, 233, 0.3); border-color: rgba(0, 219, 233, 0.8); }
+
+      0%,
+      70%,
+      100% {
+        background-color: transparent;
+        box-shadow: none;
+        border-color: rgba(0, 219, 233, 0.2);
+      }
+
+      85% {
+        background-color: rgba(0, 219, 233, 0.1);
+        box-shadow: inset 0 0 40px rgba(0, 219, 233, 0.3);
+        border-color: rgba(0, 219, 233, 0.8);
+      }
     }
+
     @keyframes quad-sweep-2 {
-      0%, 25%, 100% { background-color: transparent; box-shadow: none; border-color: rgba(0, 219, 233, 0.2); }
-      10% { background-color: rgba(0, 219, 233, 0.1); box-shadow: inset 0 0 40px rgba(0, 219, 233, 0.3); border-color: rgba(0, 219, 233, 0.8); }
+
+      0%,
+      25%,
+      100% {
+        background-color: transparent;
+        box-shadow: none;
+        border-color: rgba(0, 219, 233, 0.2);
+      }
+
+      10% {
+        background-color: rgba(0, 219, 233, 0.1);
+        box-shadow: inset 0 0 40px rgba(0, 219, 233, 0.3);
+        border-color: rgba(0, 219, 233, 0.8);
+      }
     }
+
     @keyframes quad-sweep-3 {
-      0%, 20%, 50%, 100% { background-color: transparent; box-shadow: none; border-color: rgba(0, 219, 233, 0.2); }
-      35% { background-color: rgba(0, 219, 233, 0.1); box-shadow: inset 0 0 40px rgba(0, 219, 233, 0.3); border-color: rgba(0, 219, 233, 0.8); }
+
+      0%,
+      20%,
+      50%,
+      100% {
+        background-color: transparent;
+        box-shadow: none;
+        border-color: rgba(0, 219, 233, 0.2);
+      }
+
+      35% {
+        background-color: rgba(0, 219, 233, 0.1);
+        box-shadow: inset 0 0 40px rgba(0, 219, 233, 0.3);
+        border-color: rgba(0, 219, 233, 0.8);
+      }
     }
+
     @keyframes quad-sweep-4 {
-      0%, 45%, 75%, 100% { background-color: transparent; box-shadow: none; border-color: rgba(0, 219, 233, 0.2); }
-      60% { background-color: rgba(0, 219, 233, 0.1); box-shadow: inset 0 0 40px rgba(0, 219, 233, 0.3); border-color: rgba(0, 219, 233, 0.8); }
+
+      0%,
+      45%,
+      75%,
+      100% {
+        background-color: transparent;
+        box-shadow: none;
+        border-color: rgba(0, 219, 233, 0.2);
+      }
+
+      60% {
+        background-color: rgba(0, 219, 233, 0.1);
+        box-shadow: inset 0 0 40px rgba(0, 219, 233, 0.3);
+        border-color: rgba(0, 219, 233, 0.8);
+      }
     }
+
     .globe-quadrant-interactive {
       transition: all 0.3s ease-out;
     }
+
     .globe-quadrant-interactive:hover {
       background-color: rgba(0, 219, 233, 0.1) !important;
       box-shadow: inset 0 0 40px rgba(0, 219, 233, 0.3) !important;
       border-color: rgba(0, 219, 233, 1) !important;
       animation: none !important;
     }
-    .globe-quadrant-sync-1 .globe-quad-text { animation: text-sweep-1 4s linear infinite; }
-    .globe-quadrant-sync-2 .globe-quad-text { animation: text-sweep-2 4s linear infinite; }
-    .globe-quadrant-sync-3 .globe-quad-text { animation: text-sweep-3 4s linear infinite; }
-    .globe-quadrant-sync-4 .globe-quad-text { animation: text-sweep-4 4s linear infinite; }
-    @keyframes text-sweep-1 { 0%, 70%, 100% { opacity: 0.4; } 85% { opacity: 1; } }
-    @keyframes text-sweep-2 { 0%, 25%, 100% { opacity: 0.4; } 10% { opacity: 1; } }
-    @keyframes text-sweep-3 { 0%, 20%, 50%, 100% { opacity: 0.4; } 35% { opacity: 1; } }
-    @keyframes text-sweep-4 { 0%, 45%, 75%, 100% { opacity: 0.4; } 60% { opacity: 1; } }
+
+    .globe-quadrant-sync-1 .globe-quad-text {
+      animation: text-sweep-1 4s linear infinite;
+    }
+
+    .globe-quadrant-sync-2 .globe-quad-text {
+      animation: text-sweep-2 4s linear infinite;
+    }
+
+    .globe-quadrant-sync-3 .globe-quad-text {
+      animation: text-sweep-3 4s linear infinite;
+    }
+
+    .globe-quadrant-sync-4 .globe-quad-text {
+      animation: text-sweep-4 4s linear infinite;
+    }
+
+    @keyframes text-sweep-1 {
+
+      0%,
+      70%,
+      100% {
+        opacity: 0.4;
+      }
+
+      85% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes text-sweep-2 {
+
+      0%,
+      25%,
+      100% {
+        opacity: 0.4;
+      }
+
+      10% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes text-sweep-3 {
+
+      0%,
+      20%,
+      50%,
+      100% {
+        opacity: 0.4;
+      }
+
+      35% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes text-sweep-4 {
+
+      0%,
+      45%,
+      75%,
+      100% {
+        opacity: 0.4;
+      }
+
+      60% {
+        opacity: 1;
+      }
+    }
+
     .globe-quadrant-interactive:hover .globe-quad-text {
       opacity: 1 !important;
       animation: none !important;
     }
+
     /* Flow line animations */
     @keyframes flow {
-      0% { stroke-dashoffset: 0; }
-      100% { stroke-dashoffset: 20; }
+      0% {
+        stroke-dashoffset: 0;
+      }
+
+      100% {
+        stroke-dashoffset: 20;
+      }
     }
+
     .animate-flow {
       animation: flow 1s linear infinite;
     }
+
     .animate-flow-reverse {
       animation: flow 1.5s linear infinite reverse;
     }
+
     @keyframes node-flow {
-      0% { stroke-dashoffset: 12; }
-      100% { stroke-dashoffset: 0; }
+      0% {
+        stroke-dashoffset: 12;
+      }
+
+      100% {
+        stroke-dashoffset: 0;
+      }
     }
+
     .animate-node-flow {
       animation: node-flow 0.8s linear infinite;
     }
+
     @keyframes ring-flow {
-      0% { stroke-dashoffset: 0; }
-      100% { stroke-dashoffset: 20; }
+      0% {
+        stroke-dashoffset: 0;
+      }
+
+      100% {
+        stroke-dashoffset: 20;
+      }
     }
+
     .animate-ring-flow {
       animation: ring-flow 4s linear infinite;
     }
+
     @keyframes service-flow {
-      0% { opacity: 0.2; }
-      50% { opacity: 0.6; }
-      100% { opacity: 0.2; }
+      0% {
+        opacity: 0.2;
+      }
+
+      50% {
+        opacity: 0.6;
+      }
+
+      100% {
+        opacity: 0.2;
+      }
     }
+
     .animate-service-flow {
       animation: service-flow 2s ease-in-out infinite;
     }
+
     @keyframes service-pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.2); }
+
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.2);
+      }
     }
+
     .animate-service-pulse {
       animation: service-pulse 2s ease-in-out infinite;
     }
+
     /* Particle animations */
     @keyframes particle-float-1 {
-      0%, 100% { transform: translate(0, 0); opacity: 0.6; }
-      50% { transform: translate(30px, -20px); opacity: 0.3; }
+
+      0%,
+      100% {
+        transform: translate(0, 0);
+        opacity: 0.6;
+      }
+
+      50% {
+        transform: translate(30px, -20px);
+        opacity: 0.3;
+      }
     }
+
     @keyframes particle-float-2 {
-      0%, 100% { transform: translate(0, 0); opacity: 0.4; }
-      50% { transform: translate(-25px, 15px); opacity: 0.2; }
+
+      0%,
+      100% {
+        transform: translate(0, 0);
+        opacity: 0.4;
+      }
+
+      50% {
+        transform: translate(-25px, 15px);
+        opacity: 0.2;
+      }
     }
+
     @keyframes particle-float-3 {
-      0%, 100% { transform: translate(0, 0); opacity: 0.5; }
-      50% { transform: translate(15px, 25px); opacity: 0.25; }
+
+      0%,
+      100% {
+        transform: translate(0, 0);
+        opacity: 0.5;
+      }
+
+      50% {
+        transform: translate(15px, 25px);
+        opacity: 0.25;
+      }
     }
+
     @keyframes particle-float-4 {
-      0%, 100% { transform: translate(0, 0); opacity: 0.7; }
-      50% { transform: translate(-20px, -30px); opacity: 0.35; }
+
+      0%,
+      100% {
+        transform: translate(0, 0);
+        opacity: 0.7;
+      }
+
+      50% {
+        transform: translate(-20px, -30px);
+        opacity: 0.35;
+      }
     }
+
     @keyframes particle-float-5 {
-      0%, 100% { transform: translate(0, 0); opacity: 0.4; }
-      50% { transform: translate(25px, -15px); opacity: 0.2; }
+
+      0%,
+      100% {
+        transform: translate(0, 0);
+        opacity: 0.4;
+      }
+
+      50% {
+        transform: translate(25px, -15px);
+        opacity: 0.2;
+      }
     }
-    .animate-particle-1 { animation: particle-float-1 6s ease-in-out infinite; }
-    .animate-particle-2 { animation: particle-float-2 8s ease-in-out infinite; }
-    .animate-particle-3 { animation: particle-float-3 7s ease-in-out infinite; }
-    .animate-particle-4 { animation: particle-float-4 5s ease-in-out infinite; }
-    .animate-particle-5 { animation: particle-float-5 9s ease-in-out infinite; }
+
+    .animate-particle-1 {
+      animation: particle-float-1 6s ease-in-out infinite;
+    }
+
+    .animate-particle-2 {
+      animation: particle-float-2 8s ease-in-out infinite;
+    }
+
+    .animate-particle-3 {
+      animation: particle-float-3 7s ease-in-out infinite;
+    }
+
+    .animate-particle-4 {
+      animation: particle-float-4 5s ease-in-out infinite;
+    }
+
+    .animate-particle-5 {
+      animation: particle-float-5 9s ease-in-out infinite;
+    }
+
     /* Pulse animation for nodes */
     @keyframes pulse-slow {
-      0%, 100% { box-shadow: 0 0 15px rgba(0, 219, 233, 0.5); }
-      50% { box-shadow: 0 0 30px rgba(0, 219, 233, 0.8); }
+
+      0%,
+      100% {
+        box-shadow: 0 0 15px rgba(0, 219, 233, 0.5);
+      }
+
+      50% {
+        box-shadow: 0 0 30px rgba(0, 219, 233, 0.8);
+      }
     }
+
     .animate-pulse-slow {
       animation: pulse-slow 3s ease-in-out infinite;
     }
+
     .hero-section {
       min-height: 95vh;
       overflow: hidden;
     }
+
     .hero-main {
       min-height: 95vh;
       padding-top: 50px;
       position: relative;
       z-index: 20;
     }
+
     .hero-split {
       display: flex;
       height: calc(95vh - 50px);
     }
+
     .hero-left {
       min-height: 100%;
     }
+
     .hero-left::before {
       content: '';
       position: absolute;
@@ -269,9 +555,10 @@
         linear-gradient(to right, rgba(46, 49, 146, 0.055) 1px, transparent 1px),
         linear-gradient(to bottom, rgba(46, 49, 146, 0.045) 1px, transparent 1px);
       background-size: 42px 42px;
-      mask-image: linear-gradient(90deg, rgba(0,0,0,0.62), transparent 58%);
+      mask-image: linear-gradient(90deg, rgba(0, 0, 0, 0.62), transparent 58%);
       pointer-events: none;
     }
+
     .hero-kicker-line {
       width: 58px;
       height: 1px;
@@ -281,6 +568,7 @@
       position: relative;
       top: -0.22em;
     }
+
     .hero-kicker-line::after {
       content: '';
       position: absolute;
@@ -291,15 +579,18 @@
       border: 1px solid #2E3192;
       background: #ffffff;
     }
+
     .hero-editorial-title {
       font-size: clamp(2.65rem, 3.15vw, 4.15rem);
       line-height: 0.98;
       letter-spacing: -0.02em;
     }
+
     .hero-value-list {
       border-top: 1px solid rgba(11, 19, 43, 0.22);
       border-bottom: 1px solid rgba(11, 19, 43, 0.14);
     }
+
     .hero-value-item {
       display: flex;
       align-items: center;
@@ -311,25 +602,30 @@
       font-weight: 800;
       letter-spacing: 0.01em;
     }
+
     .hero-value-item:first-child {
       border-top: 0;
     }
+
     .hero-value-item::after {
       content: '';
       width: 38px;
       height: 1px;
-      background: linear-gradient(90deg, rgba(46,49,146,0.65), rgba(46,49,146,0));
+      background: linear-gradient(90deg, rgba(46, 49, 146, 0.65), rgba(46, 49, 146, 0));
       opacity: 0.65;
     }
+
     @media (max-width: 1279px) and (min-width: 768px) {
       .hero-editorial-title {
         font-size: clamp(2.25rem, 3.25vw, 3.05rem);
         line-height: 1.02;
       }
     }
+
     .hero-right {
       height: 100%;
     }
+
     @media (min-width: 769px) {
       .hero-right {
         height: calc(100% + 50px);
@@ -337,6 +633,7 @@
         padding: 20px;
       }
     }
+
     .hero-visual-frame {
       height: 100%;
       margin: 0;
@@ -347,6 +644,7 @@
       background-size: cover;
       background-position: center;
     }
+
     .hero-globe-embed {
       position: absolute;
       inset: 0;
@@ -361,6 +659,7 @@
       justify-content: center;
       overflow: hidden;
     }
+
     .hero-radar-hub {
       position: relative;
       width: min(76vmin, 620px);
@@ -369,6 +668,7 @@
       align-items: center;
       justify-content: center;
     }
+
     .hero-globe-anchor {
       position: relative;
       z-index: 20;
@@ -383,6 +683,7 @@
       box-shadow: 0 0 50px rgba(0, 219, 233, 0.1);
       overflow: hidden;
     }
+
     .hero-globe-video {
       width: 100%;
       height: 100%;
@@ -391,42 +692,51 @@
       border-radius: 999px;
       filter: saturate(0.92) contrast(1.06);
     }
+
     @media (max-width: 768px) {
       .hero-section {
         min-height: auto;
         overflow: visible;
       }
+
       .hero-main {
         min-height: auto;
         padding-top: 32px;
       }
+
       .hero-split {
         flex-direction: column;
         height: auto;
         min-height: auto;
       }
+
       .hero-left {
         min-height: auto;
       }
+
       .hero-left::before {
         background-size: 34px 34px;
-        mask-image: linear-gradient(180deg, rgba(0,0,0,0.42), transparent 70%);
+        mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.42), transparent 70%);
       }
+
       .hero-kicker-line {
         display: block;
         width: 48px;
         margin: 1.05rem auto 0;
         top: 0;
       }
+
       .hero-editorial-title {
         font-size: clamp(1.88rem, 7.85vw, 2.18rem);
         line-height: 1.1;
         letter-spacing: -0.01em;
         text-align: center;
       }
+
       .hero-value-list-desktop {
         display: none !important;
       }
+
       .hero-value-list {
         display: grid;
         grid-template-columns: repeat(6, minmax(0, 1fr));
@@ -437,10 +747,12 @@
         position: relative;
         padding: 0.55rem 0;
       }
+
       .hero-value-list::before,
       .hero-value-list::after {
         display: none;
       }
+
       .hero-value-item {
         justify-content: center;
         text-align: center;
@@ -454,48 +766,62 @@
         gap: 0.42rem;
         padding: 0.4rem 0.35rem;
       }
+
       .hero-value-item:nth-child(odd) {
         padding-right: 0.35rem;
         border-right: 1px solid rgba(46, 49, 146, 0.2);
       }
+
       .hero-value-item:nth-child(even) {
         padding-left: 0.35rem;
         border-right: 1px solid rgba(46, 49, 146, 0.2);
       }
+
       .hero-value-item:nth-child(3),
       .hero-value-item:nth-child(5) {
         border-right: 0;
       }
+
       .hero-value-item:nth-child(4) {
         grid-column: 2 / span 2;
       }
+
       .hero-value-item:nth-child(5) {
         grid-column: 4 / span 2;
       }
+
       .hero-value-item:nth-child(n + 4) {
         border-top: 1px solid rgba(46, 49, 146, 0.12);
       }
+
       .hero-value-item::before {
         display: none;
       }
+
       .hero-value-item:nth-child(1)::before {
         content: 'track_changes';
       }
+
       .hero-value-item:nth-child(2)::before {
         content: 'hub';
       }
+
       .hero-value-item:nth-child(3)::before {
         content: 'settings_suggest';
       }
+
       .hero-value-item:nth-child(4)::before {
         content: 'keyboard_double_arrow_up';
       }
+
       .hero-value-item:nth-child(5)::before {
         content: 'monitoring';
       }
+
       .hero-value-item::after {
         display: none;
       }
+
       .hero-right {
         height: 430px;
         margin-top: 0.75rem;
@@ -503,35 +829,40 @@
         padding-right: 1.35rem;
         padding-bottom: 1.25rem;
       }
+
       .hero-visual-frame {
         height: 100%;
         border-radius: 12px;
       }
+
       .hero-globe-embed {
         display: none;
       }
-      
+
       .hero-blob-c {
         display: none;
       }
     }
   </style>
 </head>
+
 <body class="antialiased">
-  
+
   <!-- Navbar -->
+
+
   <nav class="navbar">
     <div class="navbar-container">
       <!-- <a href="index.html" class="navbar-logo text-[22px] md:text-[1.4rem]">Sapphire Intelligence</a> -->
 
       <a href="index.html" class="navbar-brand">
-  <img src="other_assets/logo.jpeg" alt="Sapphire Logo" class="navbar-brand-logo">
-  <span class="navbar-brand-text">Sapphire Intelligence</span>
-</a>
-      
+        <img src="other_assets/logo.jpeg" alt="Sapphire Logo" class="navbar-brand-logo">
+        <span class="navbar-brand-text">Sapphire Intel Consulting</span>
+      </a>
+
       <div class="navbar-menu">
         <a href="index.html" class="navbar-link">Home</a>
-        
+
         <div class="dropdown">
           <span class="navbar-link dropdown-trigger">
             Services
@@ -560,14 +891,14 @@
             </a>
           </div>
         </div>
-        
+
         <a href="about.html" class="navbar-link">About</a>
         <a href="insights.html" class="navbar-link">Insights</a>
         <a href="casestudies_combined.html" class="navbar-link">Case Studies</a>
       </div>
-      
+
       <a href="contact.html" class="navbar-cta">Contact Us</a>
-      
+
       <div class="mobile-menu-toggle">
         <span></span>
         <span></span>
@@ -575,40 +906,55 @@
       </div>
     </div>
 
-    </nav>
+  </nav>
+
+
+
+
 
   <!-- Page Content -->
+
+
   <main class="page-content" style="background: white;">
-    
+
     <!-- SECTION 01: Hero - New Design -->
-  <!-- Hero Section: 95vh height, contains navbar offset -->
-  <section class="relative hero-section">
-    
-    <!-- Background: Decorative animated blob -->
-    <div class="hero-blob-c"></div>
-    
-<!-- Main Hero Container -->
-    <div class="hero-main">
-      
-<!-- Two-column flex container with explicit height -->
-      <div class="hero-split w-full md:flex-row">
-          
+    <!-- Hero Section: 95vh height, contains navbar offset -->
+    <section class="relative hero-section">
+
+      <!-- Background: Decorative animated blob -->
+      <div class="hero-blob-c"></div>
+
+      <!-- Main Hero Container -->
+      <div class="hero-main">
+
+        <!-- Two-column flex container with explicit height -->
+        <div class="hero-split w-full md:flex-row">
+
           <!-- ==========================
                LEFT COLUMN: Text content
                Width: 45% of section
                Background: White with grid and cloudy gradients
           ========================== -->
-          <div class="order-1 md:order-none hero-left w-full md:w-[45%] flex flex-col justify-center px-8 py-7 md:px-6 md:py-0" style="height: auto; position: relative; overflow: hidden;">
-            
-            
-  <!-- Cloudy gradient spots -->
-  <div style="position: absolute; top: 4%; left: 10%; width: 260px; height: 260px; background: radial-gradient(circle, rgba(46,49,146,0.10) 0%, transparent 68%); border-radius: 50%; filter: blur(34px);"></div>
-  <div style="position: absolute; bottom: 8%; right: 4%; width: 220px; height: 220px; background: radial-gradient(circle, rgba(0,219,233,0.075) 0%, transparent 70%); border-radius: 50%; filter: blur(48px);"></div>
-  <div style="position: absolute; top: 45%; left: 56%; width: 120px; height: 120px; background: radial-gradient(circle, rgba(46,49,146,0.075) 0%, transparent 70%); border-radius: 50%; filter: blur(28px);"></div>
-              <!-- Inner container: editorial content -->
-              <div class="relative z-10 w-full md:w-[86%] md:ml-[8%] xl:w-[78%] xl:ml-[14%] 2xl:w-[74%] 2xl:ml-[18%]">
+          <div
+            class="order-1 md:order-none hero-left w-full md:w-[45%] flex flex-col justify-center px-8 py-7 md:px-6 md:py-0"
+            style="height: auto; position: relative;">
+
+
+            <!-- Cloudy gradient spots -->
+            <div
+              style="position: absolute; top: 4%; left: 10%; width: 260px; height: 260px; background: radial-gradient(circle, rgba(46,49,146,0.10) 0%, transparent 68%); border-radius: 50%; filter: blur(34px);">
+            </div>
+            <div
+              style="position: absolute; bottom: 8%; right: 4%; width: 220px; height: 220px; background: radial-gradient(circle, rgba(0,219,233,0.075) 0%, transparent 70%); border-radius: 50%; filter: blur(48px);">
+            </div>
+            <div
+              style="position: absolute; top: 45%; left: 56%; width: 120px; height: 120px; background: radial-gradient(circle, rgba(46,49,146,0.075) 0%, transparent 70%); border-radius: 50%; filter: blur(28px);">
+            </div>
+            <!-- Inner container: editorial content -->
+            <div class="relative z-10 w-full md:w-[86%] md:ml-[8%] xl:w-[78%] xl:ml-[14%] 2xl:w-[74%] 2xl:ml-[18%]">
               <div class="mb-5 md:mb-8">
-                <span class="text-[11px] font-extrabold tracking-[0.24em] text-[#2E3192] uppercase">Strategic Advisory</span><span class="hero-kicker-line"></span>
+                <span class="text-[11px] font-extrabold tracking-[0.24em] text-[#2E3192] uppercase">Strategic
+                  Advisory</span><span class="hero-kicker-line"></span>
               </div>
               <h1 class="hero-editorial-title font-serif mb-5 md:mb-9 text-[#0b132b]">
                 <span class="block text-[#0b132b]">Growth Partners</span>
@@ -629,32 +975,84 @@
               </div>
 
               <!-- Subheadline -->
-              <p class="hidden md:block md:text-[0.98rem] xl:text-[1.02rem] text-[#0b132b]/72 md:mb-8 leading-[1.48] md:leading-[1.75] max-w-xl">
-                Sapphire Intel Consulting delivers strategic excellence and measurable transformation across Healthcare, Pharmaceuticals, Real Estate, D2C Products, and General Business Consulting.
+              <p
+                class="hidden md:block md:text-[0.98rem] xl:text-[1.02rem] text-[#0b132b]/72 md:mb-8 leading-[1.48] md:leading-[1.75] max-w-xl">
+                Sapphire Intel Consulting delivers strategic excellence and measurable transformation across Healthcare,
+                Pharmaceuticals, Real Estate, D2C Products, and General Business Consulting.
               </p>
 
               <!-- CTA Buttons -->
-              <div class="flex flex-col xl:flex-row gap-2.5 md:gap-4 mb-4 md:mb-9 text-center">
-                <a class="inline-flex items-center justify-center gap-2.5 bg-[#0b132b] text-white rounded-[5px] font-bold text-[10.5px] md:text-[12px] xl:text-[13px] tracking-[0.11em] uppercase hover:bg-[#1c2541] transition-all shadow-xl shadow-black/10 px-5 md:px-6 py-3 md:py-4 text-center whitespace-nowrap" href="services-general.html">
+
+              <div class="flex flex-col xl:flex-row gap-3 mb-4 md:mb-9">
+
+                <!-- Button 1 -->
+                <a href="services-general.html" class="w-[280px] h-[58px] flex items-center justify-center gap-2
+    bg-[#0b132b] text-white rounded-[5px]
+    font-bold text-[11px] xl:text-[12px]
+    tracking-[0.06em] uppercase
+    hover:bg-[#1c2541]
+    transition-all duration-300 ease-out shadow-lg">
+
                   Explore Our Expertise
-                  <span class="material-symbols-outlined text-[17px]">arrow_forward</span>
+
+                  <span class="material-symbols-outlined text-[18px]">
+                    arrow_forward
+                  </span>
                 </a>
-                <a class="inline-flex items-center justify-center gap-2.5 bg-white/80 text-[#0b132b] border border-[#0b132b]/70 rounded-[5px] font-bold text-[10.5px] md:text-[12px] xl:text-[13px] tracking-[0.11em] uppercase hover:bg-[#0b132b] hover:text-white transition-all px-5 md:px-6 py-3 md:py-4 text-center whitespace-nowrap" href="contact.html">
-                  Schedule a Strategy Call
-                  <span class="material-symbols-outlined text-[17px]">arrow_forward</span>
+
+
+                <!-- Button 2 -->
+                <a href="contact.html" class="w-[280px] h-[58px] flex items-center justify-center gap-2
+    bg-white text-[#0b132b]
+    border border-[#0b132b]
+    rounded-[5px]
+    font-bold text-[11px] xl:text-[12px]
+    tracking-[0.06em] uppercase
+    hover:bg-[#0b132b] hover:text-white
+    transition-all duration-300 ease-out">
+
+                  Schedule Strategy Call
+
+                  <span class="material-symbols-outlined text-[18px]">
+                    arrow_forward
+                  </span>
                 </a>
+
               </div>
+
+
+
+
+
+
+
 
               <!-- Stats Row -->
               <div class="hidden md:flex items-center gap-5 md:gap-6 mb-5 md:mb-11">
                 <div class="flex -space-x-2">
-                  <div class="w-7 h-7 md:w-6 md:h-6 rounded-full bg-slate-300 border-2 border-white overflow-hidden shadow-sm"><img alt="" class="object-cover w-full h-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0Ika45iDyLFME3KhLEY51mIqZlH_k46c4XSOQzUgvbcRQCPQB2xJQId6fY3t6qvTaa3jPogCkLzBQH6nhWTYlKVQXu0Bvh9S5tdnL8v84EMdTUmTIILZe4WHjFss4JUTaNEkJj-ijDhxMUAfV80OvRoiXB0RalR4yiqjXbtShMAMqqI0lOmUQtzTL6njIK_0so1TLI75CFuSFxqoQA7CPajITNkqZp1fFAZ_xolZSwhEDon4EGDWT-Iw6AoDsZH0Xidm6RrRb5RuZ"></div>
-                  <div class="w-7 h-7 md:w-6 md:h-6 rounded-full bg-slate-400 border-2 border-white overflow-hidden shadow-sm"><img alt="" class="object-cover w-full h-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwFuD8pcEIy-mj9GC9JwKAbaT8QGS4oiUvO-szY3GvqxYeadhdmbDUFTSGSN_B7lDBdrQxa376dNwcwEn-OM2rSJdrtRE-UQkQgK8zQDPmcq7LnqeeLcIYcksQXEp6mXVMMYlYdDp8gFkZBNP8jZgvNqI9IhSL4cbNBC6CjIXZM1yUjMqk5TAvsMFMmQdwhkg4ZlK0oMUj3g038pBD3utjN-FQX1loMfBKBU3-AIZYCUHfbtBzEPOukkBjq5HTcYUXUtCI6nTvPhPe"></div>
-                  <div class="w-7 h-7 md:w-6 md:h-6 rounded-full bg-slate-500 border-2 border-white overflow-hidden shadow-sm"><img alt="" class="object-cover w-full h-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjGbHvHgiDfmAACZpiOV6GMoxAH1ojPLPzH9f-MHfAd2BaBzbBM7w91T_YcbdG32iE-_0TeVd6myhbAbBH48PNfZ1FBjdrWH57PgUV8kkdv5vZA93YWsa_a1Utq90oIUDlGO41tMiC2RZbjEFBVF8YEMCWbrdgybIuowqMWLQrjZfo0aC_vDfsCfouD74sp3pjLtePSghiPVsyD5qVmohyS_NeP2iilxZo-Cbd6mAbFRnZMgqsCSmStFU9zei_gSeB7EEE5xnJ9iLU"></div>
-                  <div class="w-7 h-7 md:w-6 md:h-6 rounded-full bg-[#0b132b] flex items-center justify-center text-white text-[8px] border-2 border-white font-bold shadow-sm">+</div>
+                  <div
+                    class="w-7 h-7 md:w-6 md:h-6 rounded-full bg-slate-300 border-2 border-white overflow-hidden shadow-sm">
+                    <img alt="" class="object-cover w-full h-full"
+                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0Ika45iDyLFME3KhLEY51mIqZlH_k46c4XSOQzUgvbcRQCPQB2xJQId6fY3t6qvTaa3jPogCkLzBQH6nhWTYlKVQXu0Bvh9S5tdnL8v84EMdTUmTIILZe4WHjFss4JUTaNEkJj-ijDhxMUAfV80OvRoiXB0RalR4yiqjXbtShMAMqqI0lOmUQtzTL6njIK_0so1TLI75CFuSFxqoQA7CPajITNkqZp1fFAZ_xolZSwhEDon4EGDWT-Iw6AoDsZH0Xidm6RrRb5RuZ">
+                  </div>
+                  <div
+                    class="w-7 h-7 md:w-6 md:h-6 rounded-full bg-slate-400 border-2 border-white overflow-hidden shadow-sm">
+                    <img alt="" class="object-cover w-full h-full"
+                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwFuD8pcEIy-mj9GC9JwKAbaT8QGS4oiUvO-szY3GvqxYeadhdmbDUFTSGSN_B7lDBdrQxa376dNwcwEn-OM2rSJdrtRE-UQkQgK8zQDPmcq7LnqeeLcIYcksQXEp6mXVMMYlYdDp8gFkZBNP8jZgvNqI9IhSL4cbNBC6CjIXZM1yUjMqk5TAvsMFMmQdwhkg4ZlK0oMUj3g038pBD3utjN-FQX1loMfBKBU3-AIZYCUHfbtBzEPOukkBjq5HTcYUXUtCI6nTvPhPe">
+                  </div>
+                  <div
+                    class="w-7 h-7 md:w-6 md:h-6 rounded-full bg-slate-500 border-2 border-white overflow-hidden shadow-sm">
+                    <img alt="" class="object-cover w-full h-full"
+                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjGbHvHgiDfmAACZpiOV6GMoxAH1ojPLPzH9f-MHfAd2BaBzbBM7w91T_YcbdG32iE-_0TeVd6myhbAbBH48PNfZ1FBjdrWH57PgUV8kkdv5vZA93YWsa_a1Utq90oIUDlGO41tMiC2RZbjEFBVF8YEMCWbrdgybIuowqMWLQrjZfo0aC_vDfsCfouD74sp3pjLtePSghiPVsyD5qVmohyS_NeP2iilxZo-Cbd6mAbFRnZMgqsCSmStFU9zei_gSeB7EEE5xnJ9iLU">
+                  </div>
+                  <div
+                    class="w-7 h-7 md:w-6 md:h-6 rounded-full bg-[#0b132b] flex items-center justify-center text-white text-[8px] border-2 border-white font-bold shadow-sm">
+                    +</div>
                 </div>
                 <div class="h-7 w-px bg-[#0b132b]/18"></div>
-                <span class="text-[10px] md:text-[9px] font-extrabold uppercase tracking-[0.18em] text-[#0b132b]/70 leading-relaxed">Trusted by<br class="md:hidden"> Global Network</span>
+                <span
+                  class="text-[10px] md:text-[9px] font-extrabold uppercase tracking-[0.18em] text-[#0b132b]/70 leading-relaxed">Trusted
+                  by<br class="md:hidden"> Global Network</span>
               </div>
 
               <!-- Value Labels with divider lines -->
@@ -667,58 +1065,27 @@
               </div>
             </div>
           </div>
-           
-            <!-- ==========================
-                RIGHT COLUMN: Visual/animation
-               Width: 55% of section
-               Background: Black
-               Vertically centered via flex items-center
-               Contains: Animated radar/network diagram
-          ========================== -->
-          <div class="order-3 md:order-none hero-right w-full md:w-[55%] flex flex-col justify-start p-3 md:p-5" style="background: white; position: relative; z-index: 1;">
+
+          <div class="order-3 md:order-none hero-right w-full md:w-[55%] flex flex-col justify-start p-3 md:p-5"
+            style="background: white; position: relative; z-index: 1;">
             <!-- Box container with rounded corners -->
             <div class="hero-visual-frame w-full overflow-hidden" style="position: relative; width: 100%;">
               <div class="hero-globe-embed globe-hud-grid" aria-hidden="true">
-                <div class="hero-radar-hub">
-                  <div class="absolute inset-0 border border-white/20 rounded-full"></div>
-                  <div class="absolute inset-[10%] border border-white/30 rounded-full border-dashed"></div>
-                  <div class="absolute inset-[25%] border border-white/40 rounded-full"></div>
-                  <div class="absolute inset-[40%] border border-cyan-300/20 rounded-full globe-glow-border"></div>
-                  <div class="absolute inset-0 rounded-full overflow-hidden z-0">
-                    <div class="globe-pulse-ring"></div>
-                    <div class="globe-pulse-ring"></div>
-                    <div class="globe-pulse-ring"></div>
-                  </div>
-                  <div class="absolute inset-0 z-10 p-4">
-                    <div class="relative w-full h-full">
-                      <div class="absolute top-0 left-0 w-[49.5%] h-[49.5%] rounded-tl-full border border-cyan-300/20 origin-bottom-right backdrop-blur-[2px] globe-quadrant-interactive globe-quadrant-sync-1"></div>
-                      <div class="absolute top-0 right-0 w-[49.5%] h-[49.5%] rounded-tr-full border border-cyan-300/20 origin-bottom-left backdrop-blur-[2px] globe-quadrant-interactive globe-quadrant-sync-2"></div>
-                      <div class="absolute bottom-0 right-0 w-[49.5%] h-[49.5%] rounded-br-full border border-cyan-300/20 origin-top-left backdrop-blur-[2px] globe-quadrant-interactive globe-quadrant-sync-3"></div>
-                      <div class="absolute bottom-0 left-0 w-[49.5%] h-[49.5%] rounded-bl-full border border-cyan-300/20 origin-top-right backdrop-blur-[2px] globe-quadrant-interactive globe-quadrant-sync-4"></div>
-                    </div>
-                  </div>
-
-
-                  <div class="hero-globe-anchor">
-                    <video class="hero-globe-video" src="other_assets/SAPPHIRE.mp4" muted autoplay loop playsinline preload="metadata"></video>
-                  </div>
 
 
 
 
-
-
-                </div>
               </div>
-              <!-- D3 Node Diagram: SVG canvas managed by D3.js -->
-              <div id="node-diagram" style="position: absolute; inset: 0; z-index: 10; overflow: hidden;"></div>
-
             </div>
-          </div>
+            <!-- D3 Node Diagram: SVG canvas managed by D3.js -->
+            <div id="node-diagram" style="position: absolute; inset: 0; z-index: 10; overflow: hidden;"></div>
 
+          </div>
         </div>
+
       </div>
-  </section>
+      </div>
+    </section>
 
     <!-- Strategic Intelligence Overlay -->
     <script>
@@ -741,375 +1108,426 @@
         if (height === 0) height = 300;
 
         {
-        const centerX = width / 2;
-        const centerY = height / 2;
-        const minSize = Math.min(width, height);
-        const industryRingRadius = minSize * 0.36;
-        const outerRadius = minSize * 0.48;
-        const nodeAngleStep = (Math.PI * 2) / 5;
-        const nodeStartAngle = -Math.PI / 2;
-        const industries = [
-          {
-            id: 'intelligence',
-            name: 'INTELLIGENCE',
-            image: 'other_assets/hero_images/hero_services/blog-card__img--ai-01.jpg',
-            tags: ['Signals', 'Data', 'Clarity']
-          },
-          {
-            id: 'automation',
-            name: 'AUTOMATION',
-            image: 'other_assets/hero_images/hero_services/industries__card-img--aitech-02.jpg',
-            tags: ['Systems', 'Ops', 'Scale']
-          },
-          {
-            id: 'insights',
-            name: 'INSIGHTS',
-            image: 'other_assets/hero_images/hero_services/blog-card__img--diligence-01.jpg',
-            tags: ['Evidence', 'ROI', 'Focus']
-          },
-          {
-            id: 'transformation',
-            name: 'TRANSFORMATION',
-            image: 'other_assets/hero_images/hero_services/fullwidth__banner--01.jpg',
-            tags: ['Change', 'Teams', 'Pace']
-          },
-          {
-            id: 'strategy',
-            name: 'STRATEGY',
-            image: 'other_assets/hero_images/hero_services/blog-card__img--ma-01.jpg',
-            tags: ['Roadmap', 'Growth', 'Moves']
-          }
-        ].map((industry, index) => ({
-          ...industry,
-          angle: nodeStartAngle + nodeAngleStep * index
-        }));
+          const centerX = width / 2;
+          const centerY = height / 2;
+          const minSize = Math.min(width, height);
+          const industryRingRadius = minSize * 0.36;
+          const outerRadius = minSize * 0.48;
+          const nodeAngleStep = (Math.PI * 2) / 5;
+          const nodeStartAngle = -Math.PI / 2;
+          const industries = [
+            {
+              id: 'intelligence',
+              name: 'INTELLIGENCE',
+              image: 'other_assets/hero_images/hero_services/blog-card__img--ai-01.jpg',
+              tags: ['Signals', 'Data', 'Clarity']
+            },
+            {
+              id: 'automation',
+              name: 'AUTOMATION',
+              image: 'other_assets/hero_images/hero_services/industries__card-img--aitech-02.jpg',
+              tags: ['Systems', 'Ops', 'Scale']
+            },
+            {
+              id: 'insights',
+              name: 'INSIGHTS',
+              image: 'other_assets/hero_images/hero_services/blog-card__img--diligence-01.jpg',
+              tags: ['Evidence', 'ROI', 'Focus']
+            },
+            {
+              id: 'transformation',
+              name: 'TRANSFORMATION',
+              image: 'other_assets/hero_images/hero_services/fullwidth__banner--01.jpg',
+              tags: ['Change', 'Teams', 'Pace']
+            },
+            {
+              id: 'strategy',
+              name: 'STRATEGY',
+              image: 'other_assets/hero_images/hero_services/blog-card__img--ma-01.jpg',
+              tags: ['Roadmap', 'Growth', 'Moves']
+            }
+          ].map((industry, index) => ({
+            ...industry,
+            angle: nodeStartAngle + nodeAngleStep * index
+          }));
 
-        const svg = d3.select(container)
-          .append('svg')
-          .attr('width', '100%')
-          .attr('height', '100%')
-          .attr('viewBox', `0 0 ${width} ${height}`)
-          .attr('preserveAspectRatio', 'xMidYMid meet')
-          .style('overflow', 'hidden');
-
-        const defs = svg.append('defs');
-        const glowFilter = defs.append('filter')
-          .attr('id', 'node-glow')
-          .attr('x', '-100%')
-          .attr('y', '-100%')
-          .attr('width', '300%')
-          .attr('height', '300%');
-        glowFilter.append('feGaussianBlur')
-          .attr('stdDeviation', '6')
-          .attr('result', 'coloredBlur');
-        const glowMerge = glowFilter.append('feMerge');
-        glowMerge.append('feMergeNode').attr('in', 'coloredBlur');
-        glowMerge.append('feMergeNode').attr('in', 'SourceGraphic');
-
-        const cardShadow = defs.append('filter')
-          .attr('id', 'card-shadow')
-          .attr('x', '-40%')
-          .attr('y', '-40%')
-          .attr('width', '180%')
-          .attr('height', '180%');
-        cardShadow.append('feDropShadow')
-          .attr('dx', '0')
-          .attr('dy', width < 640 ? '8' : '12')
-          .attr('stdDeviation', width < 640 ? '7' : '10')
-          .attr('flood-color', '#020617')
-          .attr('flood-opacity', '0.34');
-
-        const pulseFilter = defs.append('filter')
-          .attr('id', 'pulse-glow')
-          .attr('x', '-150%')
-          .attr('y', '-150%')
-          .attr('width', '400%')
-          .attr('height', '400%');
-        pulseFilter.append('feGaussianBlur')
-          .attr('stdDeviation', '8')
-          .attr('result', 'coloredBlur');
-        const pulseMerge = pulseFilter.append('feMerge');
-        pulseMerge.append('feMergeNode').attr('in', 'coloredBlur');
-        pulseMerge.append('feMergeNode').attr('in', 'SourceGraphic');
-
-        const mapItems = [
-          {
-            title: 'INTELLIGENCE',
-            video: 'other_assets/hero_images/hero_videos/1.mp4',
-            sentence: 'Intelligence that empowers decisions',
-            angle: -90,
-            mobileX: 50,
-            mobileY: 25
-          },
-          {
-            title: 'STRATEGY',
-            video: 'other_assets/hero_images/hero_videos/2.mp4',
-            sentence: 'Strategy that drives growth',
-            angle: -168,
-            mobileX: 20,
-            mobileY: 25
-          },
-          {
-            title: 'AUTOMATION',
-            video: 'other_assets/hero_images/hero_videos/3.mp4',
-            sentence: 'Automation that enhances efficiency',
-            angle: -12,
-            mobileX: 80,
-            mobileY: 25
-          },
-          {
-            title: 'TRANSFORMATION',
-            video: 'other_assets/hero_images/hero_videos/4.mp4',
-            sentence: 'Solutions that transform businesses',
-            angle: 132,
-            mobileX: 35,
-            mobileY: 72
-          },
-          {
-            title: 'INSIGHTS',
-            video: 'other_assets/hero_images/hero_videos/5.mp4',
-            sentence: 'Insights that create impact',
-            angle: 48,
-            mobileX: 65,
-            mobileY: 72
-          }
-        ];
-
-        const isMobileDiagram = width < 640;
-        const mobileCardWidth = Math.min(135, width * 0.3 - 4);
-        const cardSize = isMobileDiagram
-          ? { width: mobileCardWidth, height: mobileCardWidth * 1.18, imageHeight: mobileCardWidth * 0.66 }
-          : { width: 230, height: 267, imageHeight: 152 };
-        const orbitX = Math.min(width * 0.41, minSize * 0.6);
-        const orbitY = Math.min(height * 0.47, minSize * 0.54);
-        const cardMargin = isMobileDiagram ? 10 : 20;
-        const cardLayer = svg.append('g').attr('class', 'hero-map-cards');
-
-        mapItems.forEach(item => {
-          const angle = item.angle * Math.PI / 180;
-          const targetX = isMobileDiagram ? width * item.mobileX / 100 : centerX + Math.cos(angle) * orbitX;
-          const targetY = isMobileDiagram ? height * item.mobileY / 100 : centerY + Math.sin(angle) * orbitY;
-          const x = Math.min(width - cardSize.width - cardMargin, Math.max(cardMargin, targetX - cardSize.width / 2));
-          const y = Math.min(height - cardSize.height - cardMargin, Math.max(cardMargin, targetY - cardSize.height / 2));
-
-          cardLayer.append('rect')
-            .attr('x', x)
-            .attr('y', y)
-            .attr('width', cardSize.width)
-            .attr('height', cardSize.height)
-            .attr('rx', 6)
-            .attr('fill', '#050914')
-            .attr('stroke', 'rgba(255,255,255,0.16)')
-            .attr('stroke-width', 1)
-            .attr('filter', 'url(#card-shadow)');
-
-          const card = cardLayer.append('foreignObject')
-            .attr('x', x)
-            .attr('y', y)
-            .attr('width', cardSize.width)
-            .attr('height', cardSize.height);
-
-          const body = card.append('xhtml:div')
-            .style('box-sizing', 'border-box')
-            .style('width', `${cardSize.width}px`)
-            .style('height', `${cardSize.height}px`)
-            .style('padding', isMobileDiagram ? '6px' : '10px')
-            .style('background', 'linear-gradient(180deg, rgba(15, 23, 42, 0.98), rgba(3, 7, 18, 0.98))')
-            .style('border-radius', '6px')
-            .style('box-shadow', 'inset 0 0 0 1px rgba(255,255,255,0.08)')
-            .style('font-family', 'Inter, sans-serif')
+          const svg = d3.select(container)
+            .append('svg')
+            .attr('width', '100%')
+            .attr('height', '100%')
+            .attr('viewBox', `0 0 ${width} ${height}`)
+            .attr('preserveAspectRatio', 'xMidYMid meet')
             .style('overflow', 'hidden');
 
-          const video = body.append('xhtml:video')
-            .attr('src', item.video)
-            .attr('muted', true)
-            .attr('autoplay', true)
-            .attr('loop', true)
-            .attr('playsinline', true)
-            .attr('preload', 'metadata')
-            .style('display', 'block')
-            .style('width', '100%')
-            .style('height', `${cardSize.imageHeight}px`)
-            .style('object-fit', 'cover')
-            .style('border-radius', '4px')
-            .style('opacity', '0.88')
-            .node();
+          const defs = svg.append('defs');
+          const glowFilter = defs.append('filter')
+            .attr('id', 'node-glow')
+            .attr('x', '-100%')
+            .attr('y', '-100%')
+            .attr('width', '300%')
+            .attr('height', '300%');
+          glowFilter.append('feGaussianBlur')
+            .attr('stdDeviation', '6')
+            .attr('result', 'coloredBlur');
+          const glowMerge = glowFilter.append('feMerge');
+          glowMerge.append('feMergeNode').attr('in', 'coloredBlur');
+          glowMerge.append('feMergeNode').attr('in', 'SourceGraphic');
 
-          video.muted = true;
-          video.defaultMuted = true;
-          video.playsInline = true;
-          video.play().catch(() => {});
+          const cardShadow = defs.append('filter')
+            .attr('id', 'card-shadow')
+            .attr('x', '-40%')
+            .attr('y', '-40%')
+            .attr('width', '180%')
+            .attr('height', '180%');
+          cardShadow.append('feDropShadow')
+            .attr('dx', '0')
+            .attr('dy', width < 640 ? '8' : '12')
+            .attr('stdDeviation', width < 640 ? '7' : '10')
+            .attr('flood-color', '#020617')
+            .attr('flood-opacity', '0.34');
 
-          body.append('xhtml:div')
-            .style('margin-top', width < 640 ? '7px' : '9px')
-            .style('color', '#ffffff')
-            .style('font-size', isMobileDiagram ? '8.6px' : '14.5px')
-            .style('font-weight', '900')
-            .style('letter-spacing', '0.03em')
-            .style('line-height', '1.12')
-            .style('text-align', 'center')
-            .text(item.title);
+          const pulseFilter = defs.append('filter')
+            .attr('id', 'pulse-glow')
+            .attr('x', '-150%')
+            .attr('y', '-150%')
+            .attr('width', '400%')
+            .attr('height', '400%');
+          pulseFilter.append('feGaussianBlur')
+            .attr('stdDeviation', '8')
+            .attr('result', 'coloredBlur');
+          const pulseMerge = pulseFilter.append('feMerge');
+          pulseMerge.append('feMergeNode').attr('in', 'coloredBlur');
+          pulseMerge.append('feMergeNode').attr('in', 'SourceGraphic');
 
-          body.append('xhtml:div')
-            .style('margin-top', width < 640 ? '6px' : '9px')
-            .style('color', 'rgba(255,255,255,0.84)')
-            .style('font-size', isMobileDiagram ? '7px' : '12.5px')
-            .style('font-weight', '750')
-            .style('line-height', '1.28')
-            .style('text-align', 'center')
-            .style('padding', isMobileDiagram ? '0 2px' : '0 6px')
-            .text(item.sentence);
-        });
+          const mapItems = [
+            {
+              title: 'INTELLIGENCE',
+              video: 'other_assets/hero_images/hero_videos/1.mp4',
+              sentence: 'Intelligence that empowers decisions',
+              angle: -90,
+              mobileX: 50,
+              mobileY: 25
+            },
+            {
+              title: 'STRATEGY',
+              video: 'other_assets/hero_images/hero_videos/2.mp4',
+              sentence: 'Strategy that drives growth',
+              angle: -168,
+              mobileX: 20,
+              mobileY: 25
+            },
+            {
+              title: 'AUTOMATION',
+              video: 'other_assets/hero_images/hero_videos/3.mp4',
+              sentence: 'Automation that enhances efficiency',
+              angle: -12,
+              mobileX: 80,
+              mobileY: 25
+            },
+            {
+              title: 'TRANSFORMATION',
+              video: 'other_assets/hero_images/hero_videos/4.mp4',
+              sentence: 'Solutions that transform businesses',
+              angle: 132,
+              mobileX: 35,
+              mobileY: 72
+            },
+            {
+              title: 'INSIGHTS',
+              video: 'other_assets/hero_images/hero_videos/5.mp4',
+              sentence: 'Insights that create impact',
+              angle: 48,
+              mobileX: 65,
+              mobileY: 72
+            }
+          ];
 
-        if (window.heroNodeAnimation) {
-          cancelAnimationFrame(window.heroNodeAnimation);
-          window.heroNodeAnimation = null;
-        }
-        return;
+          const isMobileDiagram = width < 640;
+          const mobileCardWidth = Math.min(135, width * 0.3 - 4);
+          const cardSize = isMobileDiagram
+            ? { width: mobileCardWidth, height: mobileCardWidth * 1.18, imageHeight: mobileCardWidth * 0.66 }
+            : { width: 230, height: 267, imageHeight: 152 };
+          const orbitX = Math.min(width * 0.41, minSize * 0.6);
+          const orbitY = Math.min(height * 0.47, minSize * 0.54);
+          const cardMargin = isMobileDiagram ? 10 : 20;
+          // const cardLayer = svg.append('g').attr('class', 'hero-map-cards');
+          const cardLayer = svg.append('g')
+            .attr('class', 'hero-map-cards');
 
-        const dividerGroup = svg.append('g').attr('class', 'dividers');
-        [0, Math.PI / 2, Math.PI, -Math.PI / 2].forEach(angle => {
-          dividerGroup.append('line')
-            .attr('x1', centerX)
-            .attr('y1', centerY)
-            .attr('x2', centerX + Math.cos(angle) * outerRadius)
-            .attr('y2', centerY + Math.sin(angle) * outerRadius)
-            .attr('stroke', '#f8fafc')
-            .attr('stroke-width', 0.5)
-            .attr('opacity', 0.2);
-        });
+          cardLayer.style("transform-box", "fill-box");
+          cardLayer.style("transform-origin", "center");
 
-        const ringsGroup = svg.append('g').attr('class', 'static-rings');
-        [0.25, 0.45].forEach(radiusPct => {
-          ringsGroup.append('circle')
-            .attr('cx', centerX)
-            .attr('cy', centerY)
-            .attr('r', minSize * radiusPct)
-            .attr('fill', 'none')
-            .attr('stroke', '#f8fafc')
-            .attr('stroke-width', 0.5)
-            .attr('stroke-dasharray', '1 3')
-            .attr('opacity', 0.15);
-        });
 
-        const edgesGroup = svg.append('g').attr('class', 'edges');
-        const cardWidth = width < 640 ? 122 : 162;
-        const cardHeight = width < 640 ? 132 : 178;
-        const cardImageWidth = width < 640 ? 102 : 140;
-        const cardImageHeight = width < 640 ? 86 : 120;
-        const cardHalfWidth = cardWidth / 2;
-        const cardHalfHeight = cardHeight / 2;
-        const industryPoints = industries.map(industry => ({
-          ...industry,
-          x: Math.min(width - cardHalfWidth - 10, Math.max(cardHalfWidth + 10, centerX + Math.cos(industry.angle) * industryRingRadius)),
-          y: Math.min(height - cardHalfHeight - 10, Math.max(cardHalfHeight + 10, centerY + Math.sin(industry.angle) * industryRingRadius))
-        }));
+          mapItems.forEach(item => {
+            const angle = item.angle * Math.PI / 180;
+            const targetX = isMobileDiagram ? width * item.mobileX / 100 : centerX + Math.cos(angle) * orbitX;
+            const targetY = isMobileDiagram ? height * item.mobileY / 100 : centerY + Math.sin(angle) * orbitY;
+            const x = Math.min(width - cardSize.width - cardMargin, Math.max(cardMargin, targetX - cardSize.width / 2));
+            const y = Math.min(height - cardSize.height - cardMargin, Math.max(cardMargin, targetY - cardSize.height / 2));
 
-        industryPoints.forEach((industry) => {
-          edgesGroup.append('line')
-            .attr('x1', centerX)
-            .attr('y1', centerY)
-            .attr('x2', industry.x)
-            .attr('y2', industry.y)
-            .attr('stroke', '#f8fafc')
-            .attr('stroke-width', 0.75)
-            .attr('opacity', 0.35)
-            .attr('stroke-dasharray', '4 4')
-            .attr('class', 'data-flow-line');
-        });
 
-        const industryGroup = svg.append('g').attr('class', 'industries');
-        industryPoints.forEach((industry) => {
-          const g = industryGroup.append('g')
-            .attr('transform', `translate(${industry.x}, ${industry.y})`)
-            .attr('class', 'industry-node')
-            .style('cursor', 'default');
 
-          g.append('rect')
-            .attr('x', -cardHalfWidth)
-            .attr('y', -cardHalfHeight)
-            .attr('width', cardWidth)
-            .attr('height', cardHeight)
-            .attr('rx', width < 640 ? 10 : 12)
-            .attr('fill', 'rgba(3, 7, 18, 0.74)')
-            .attr('stroke', 'rgba(248, 250, 252, 0.58)')
-            .attr('stroke-width', 1)
-            .attr('filter', 'url(#card-shadow)');
+            cardLayer.append('rect')
+              .attr('x', x)
+              .attr('y', y)
+              .attr('width', cardSize.width)
+              .attr('height', cardSize.height)
+              .attr('rx', 6)
+              .attr('fill', '#050914')
+              .attr('stroke', 'rgba(255,255,255,0.16)')
+              .attr('stroke-width', 1)
+              .attr('filter', 'url(#card-shadow)');
 
-          const card = g.append('foreignObject')
-            .attr('x', -cardHalfWidth)
-            .attr('y', -cardHalfHeight)
-            .attr('width', cardWidth)
-            .attr('height', cardHeight);
+            const card = cardLayer.append('foreignObject')
+              .attr('x', x)
+              .attr('y', y)
+              .attr('width', cardSize.width)
+              .attr('height', cardSize.height);
 
-          const cardBody = card.append('xhtml:div')
-            .style('box-sizing', 'border-box')
-            .style('width', `${cardWidth}px`)
-            .style('height', `${cardHeight}px`)
-            .style('padding', width < 640 ? '7px' : '9px')
-            .style('border-radius', width < 640 ? '10px' : '12px')
-            .style('background', 'linear-gradient(180deg, rgba(15, 23, 42, 0.58), rgba(3, 7, 18, 0.74))')
-            .style('box-shadow', '0 10px 24px rgba(2,6,23,0.22), inset 0 0 0 1px rgba(255,255,255,0.08)')
-            .style('font-family', 'Inter, sans-serif')
-            .style('overflow', 'hidden');
 
-          cardBody.append('xhtml:img')
-            .attr('src', industry.image)
-            .attr('alt', '')
-            .style('display', 'block')
-            .style('width', `${cardImageWidth}px`)
-            .style('height', `${cardImageHeight}px`)
-            .style('object-fit', 'cover')
-            .style('margin', '0 auto')
-            .style('border-radius', width < 640 ? '7px' : '8px')
-            .style('opacity', '0.86')
-            .style('filter', 'saturate(0.9) contrast(1.05)');
+            const body = card.append('xhtml:div')
+              .style('box-sizing', 'border-box')
+              .style('width', `${cardSize.width}px`)
+              .style('height', `${cardSize.height}px`)
+              .style('padding', isMobileDiagram ? '6px' : '10px')
+              .style('background', 'linear-gradient(180deg, rgba(15, 23, 42, 0.98), rgba(3, 7, 18, 0.98))')
+              .style('border-radius', '6px')
+              .style('box-shadow', 'inset 0 0 0 1px rgba(255,255,255,0.08)')
+              .style('font-family', 'Inter, sans-serif')
+              .style('overflow', 'hidden');
 
-          cardBody.append('xhtml:div')
-            .style('margin-top', width < 640 ? '5px' : '7px')
-            .style('color', '#ffffff')
-            .style('font-size', width < 640 ? '8px' : '10px')
-            .style('font-weight', '800')
-            .style('letter-spacing', width < 640 ? '0.08em' : '0.11em')
-            .style('line-height', '1')
-            .text(industry.name);
+            const video = body.append('xhtml:video')
+              .attr('src', item.video)
+              .attr('muted', true)
+              .attr('autoplay', true)
+              .attr('loop', true)
+              .attr('playsinline', true)
+              .attr('preload', 'metadata')
+              .style('display', 'block')
+              .style('width', '100%')
+              .style('height', `${cardSize.imageHeight}px`)
+              .style('object-fit', 'cover')
+              .style('border-radius', '4px')
+              .style('opacity', '0.88')
+              .node();
 
-          const tags = cardBody.append('xhtml:div')
-            .style('display', 'flex')
-            .style('gap', width < 640 ? '3px' : '4px')
-            .style('margin-top', width < 640 ? '5px' : '7px')
-            .style('overflow', 'hidden');
+            video.muted = true;
+            video.defaultMuted = true;
+            video.playsInline = true;
+            video.play().catch(() => { });
 
-          industry.tags.forEach(tag => {
-            tags.append('xhtml:span')
-              .style('display', 'inline-block')
-              .style('padding', width < 640 ? '2px 4px' : '3px 6px')
-              .style('border', '1px solid rgba(255,255,255,0.24)')
-              .style('border-radius', '999px')
-              .style('color', 'rgba(255,255,255,0.86)')
-              .style('font-size', width < 640 ? '6px' : '7px')
-              .style('font-weight', '700')
-              .style('line-height', '1')
-              .style('white-space', 'nowrap')
-              .text(tag);
+            body.append('xhtml:div')
+              .style('margin-top', width < 640 ? '7px' : '9px')
+              .style('color', '#ffffff')
+              .style('font-size', isMobileDiagram ? '8.6px' : '14.5px')
+              .style('font-weight', '900')
+              .style('letter-spacing', '0.03em')
+              .style('line-height', '1.12')
+              .style('text-align', 'center')
+              .text(item.title);
+
+            body.append('xhtml:div')
+              .style('margin-top', width < 640 ? '6px' : '9px')
+              .style('color', 'rgba(255,255,255,0.84)')
+              .style('font-size', isMobileDiagram ? '7px' : '12.5px')
+              .style('font-weight', '750')
+              .style('line-height', '1.28')
+              .style('text-align', 'center')
+              .style('padding', isMobileDiagram ? '0 2px' : '0 6px')
+              .text(item.sentence);
           });
-        });
 
-        if (window.heroNodeAnimation) {
-          cancelAnimationFrame(window.heroNodeAnimation);
-          window.heroNodeAnimation = null;
-        }
-        return;
+       
+
+          // let rotation = 0;
+          // setInterval(() => {
+          //   rotation += 10;
+
+          //   console.log("running", rotation);
+
+          //   cardLayer.attr(
+          //     "transform",
+          //     `rotate(${rotation} ${centerX} ${centerY})`
+          //   );
+          // }, 500);
+
+
+          let masterRotation = 0;
+          const spacing = 72;   // distance between cards
+
+          function animateOrbit() {
+            masterRotation += 0.4;
+
+            orbitCards.forEach((cardObj, index) => {
+
+              const angle =
+                (masterRotation - index * spacing) * Math.PI / 180;
+
+              const safeOrbitX = width / 2 - cardSize.width - 30;
+              const safeOrbitY = height / 2 - cardSize.height - 30;
+
+              let x = centerX + Math.cos(angle) * safeOrbitX;
+              let y = centerY + Math.sin(angle) * safeOrbitY;
+
+              cardObj.group.attr(
+                "transform",
+                `translate(${x}, ${y})`
+              );
+            });
+
+            requestAnimationFrame(animateOrbit);
+          }
+
+          animateOrbit();
+
+
+
+
+          return;
+
+          const dividerGroup = svg.append('g').attr('class', 'dividers');
+          [0, Math.PI / 2, Math.PI, -Math.PI / 2].forEach(angle => {
+            dividerGroup.append('line')
+              .attr('x1', centerX)
+              .attr('y1', centerY)
+              .attr('x2', centerX + Math.cos(angle) * outerRadius)
+              .attr('y2', centerY + Math.sin(angle) * outerRadius)
+              .attr('stroke', '#f8fafc')
+              .attr('stroke-width', 0.5)
+              .attr('opacity', 0.2);
+          });
+
+          const ringsGroup = svg.append('g').attr('class', 'static-rings');
+          [0.25, 0.45].forEach(radiusPct => {
+            ringsGroup.append('circle')
+              .attr('cx', centerX)
+              .attr('cy', centerY)
+              .attr('r', minSize * radiusPct)
+              .attr('fill', 'none')
+              .attr('stroke', '#f8fafc')
+              .attr('stroke-width', 0.5)
+              .attr('stroke-dasharray', '1 3')
+              .attr('opacity', 0.15);
+          });
+
+          const edgesGroup = svg.append('g').attr('class', 'edges');
+          const cardWidth = width < 640 ? 122 : 162;
+          const cardHeight = width < 640 ? 132 : 178;
+          const cardImageWidth = width < 640 ? 102 : 140;
+          const cardImageHeight = width < 640 ? 86 : 120;
+          const cardHalfWidth = cardWidth / 2;
+          const cardHalfHeight = cardHeight / 2;
+          const industryPoints = industries.map(industry => ({
+            ...industry,
+            x: Math.min(width - cardHalfWidth - 10, Math.max(cardHalfWidth + 10, centerX + Math.cos(industry.angle) * industryRingRadius)),
+            y: Math.min(height - cardHalfHeight - 10, Math.max(cardHalfHeight + 10, centerY + Math.sin(industry.angle) * industryRingRadius))
+          }));
+
+          industryPoints.forEach((industry) => {
+            edgesGroup.append('line')
+              .attr('x1', centerX)
+              .attr('y1', centerY)
+              .attr('x2', industry.x)
+              .attr('y2', industry.y)
+              .attr('stroke', '#f8fafc')
+              .attr('stroke-width', 0.75)
+              .attr('opacity', 0.35)
+              .attr('stroke-dasharray', '4 4')
+              .attr('class', 'data-flow-line');
+          });
+
+          const industryGroup = svg.append('g').attr('class', 'industries');
+          industryPoints.forEach((industry) => {
+            const g = industryGroup.append('g')
+              .attr('transform', `translate(${industry.x}, ${industry.y})`)
+              .attr('class', 'industry-node')
+              .style('cursor', 'default');
+
+            g.append('rect')
+              .attr('x', -cardHalfWidth)
+              .attr('y', -cardHalfHeight)
+              .attr('width', cardWidth)
+              .attr('height', cardHeight)
+              .attr('rx', width < 640 ? 10 : 12)
+              .attr('fill', 'rgba(3, 7, 18, 0.74)')
+              .attr('stroke', 'rgba(248, 250, 252, 0.58)')
+              .attr('stroke-width', 1)
+              .attr('filter', 'url(#card-shadow)');
+
+            const card = g.append('foreignObject')
+              .attr('x', -cardHalfWidth)
+              .attr('y', -cardHalfHeight)
+              .attr('width', cardWidth)
+              .attr('height', cardHeight);
+
+            const cardBody = card.append('xhtml:div')
+              .style('box-sizing', 'border-box')
+              .style('width', `${cardWidth}px`)
+              .style('height', `${cardHeight}px`)
+              .style('padding', width < 640 ? '7px' : '9px')
+              .style('border-radius', width < 640 ? '10px' : '12px')
+              .style('background', 'linear-gradient(180deg, rgba(15, 23, 42, 0.58), rgba(3, 7, 18, 0.74))')
+              .style('box-shadow', '0 10px 24px rgba(2,6,23,0.22), inset 0 0 0 1px rgba(255,255,255,0.08)')
+              .style('font-family', 'Inter, sans-serif')
+              .style('overflow', 'hidden');
+
+            cardBody.append('xhtml:img')
+              .attr('src', industry.image)
+              .attr('alt', '')
+              .style('display', 'block')
+              .style('width', `${cardImageWidth}px`)
+              .style('height', `${cardImageHeight}px`)
+              .style('object-fit', 'cover')
+              .style('margin', '0 auto')
+              .style('border-radius', width < 640 ? '7px' : '8px')
+              .style('opacity', '0.86')
+              .style('filter', 'saturate(0.9) contrast(1.05)');
+
+            cardBody.append('xhtml:div')
+              .style('margin-top', width < 640 ? '5px' : '7px')
+              .style('color', '#ffffff')
+              .style('font-size', width < 640 ? '8px' : '10px')
+              .style('font-weight', '800')
+              .style('letter-spacing', width < 640 ? '0.08em' : '0.11em')
+              .style('line-height', '1')
+              .text(industry.name);
+
+            const tags = cardBody.append('xhtml:div')
+              .style('display', 'flex')
+              .style('gap', width < 640 ? '3px' : '4px')
+              .style('margin-top', width < 640 ? '5px' : '7px')
+              .style('overflow', 'hidden');
+
+            industry.tags.forEach(tag => {
+              tags.append('xhtml:span')
+                .style('display', 'inline-block')
+                .style('padding', width < 640 ? '2px 4px' : '3px 6px')
+                .style('border', '1px solid rgba(255,255,255,0.24)')
+                .style('border-radius', '999px')
+                .style('color', 'rgba(255,255,255,0.86)')
+                .style('font-size', width < 640 ? '6px' : '7px')
+                .style('font-weight', '700')
+                .style('line-height', '1')
+                .style('white-space', 'nowrap')
+                .text(tag);
+            });
+          });
+
+          if (window.heroNodeAnimation) {
+            cancelAnimationFrame(window.heroNodeAnimation);
+            window.heroNodeAnimation = null;
+          }
+          return;
         }
       }
 
-      document.addEventListener('DOMContentLoaded', function() {
+      document.addEventListener('DOMContentLoaded', function () {
         requestAnimationFrame(drawNodeDiagram);
 
         let resizeTimeout;
-        window.addEventListener('resize', function() {
+        window.addEventListener('resize', function () {
           clearTimeout(resizeTimeout);
-          resizeTimeout = setTimeout(function() {
+          resizeTimeout = setTimeout(function () {
             requestAnimationFrame(drawNodeDiagram);
           }, 120);
         });
@@ -1120,13 +1538,16 @@
     <!-- SECTION 02: Marquee Atmospheric Glass -->
     <section class="relative min-h-[70px] flex items-center justify-center overflow-hidden bg-[#0a1128]">
       <div class="absolute inset-0 z-0">
-        <img alt="Architectural background" class="w-full h-full object-cover blur-sm scale-105 opacity-80" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfvU2_66iV3goXVqT85CDxrd3lOWvqMngld4vyNecURPID6ptutMozbDNV1KLIoeRpdoXVlNAcfTy6sXdLrB8jRhyDDXudD3DiNZz9Bf8WX7aJ4WmrZpvzL8PqBA59XXn-8_PqKGBMeyEcynrNwLSnJXw4j4yTkbWI11xvAhR_Vf0Apr7_UQrO_6CtLB1mlG9pRbJPpvmr_Q0NKXZuSAmr6-RvsVrv_FDYuJs6z2jH5IfuzbM8VL66m3TKx5eyi2UXs-u1Gh8s_udw">
+        <img alt="Architectural background" class="w-full h-full object-cover blur-sm scale-105 opacity-80"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfvU2_66iV3goXVqT85CDxrd3lOWvqMngld4vyNecURPID6ptutMozbDNV1KLIoeRpdoXVlNAcfTy6sXdLrB8jRhyDDXudD3DiNZz9Bf8WX7aJ4WmrZpvzL8PqBA59XXn-8_PqKGBMeyEcynrNwLSnJXw4j4yTkbWI11xvAhR_Vf0Apr7_UQrO_6CtLB1mlG9pRbJPpvmr_Q0NKXZuSAmr6-RvsVrv_FDYuJs6z2jH5IfuzbM8VL66m3TKx5eyi2UXs-u1Gh8s_udw">
         <div class="absolute inset-0 bg-[#0a1128]/70 mix-blend-overlay"></div>
         <div class="absolute inset-0 bg-[#0a1128]/80"></div>
       </div>
-      
-      <div class="relative z-10 w-full overflow-hidden flex items-center border-y border-white/10 bg-white/5 backdrop-blur-xl h-[70px] shadow-[0_0_40px_rgba(37,99,235,0.1)]">
-        <div class="animate-marquee flex items-center gap-12 whitespace-nowrap px-4 font-serif text-lg md:text-xl tracking-[0.1em] text-white font-light drop-shadow-[0_0_12px_rgba(37,99,235,0.7)]">
+
+      <div
+        class="relative z-10 w-full overflow-hidden flex items-center border-y border-white/10 bg-white/5 backdrop-blur-xl h-[70px] shadow-[0_0_40px_rgba(37,99,235,0.1)]">
+        <div
+          class="animate-marquee flex items-center gap-12 whitespace-nowrap px-4 font-serif text-lg md:text-xl tracking-[0.1em] text-white font-light drop-shadow-[0_0_12px_rgba(37,99,235,0.7)]">
           <span>Mergers &amp; Acquisitions</span>
           <span class="text-sm opacity-50 mx-4 text-brand-blue drop-shadow-none">♦</span>
           <span>Due Diligence</span>
@@ -1165,180 +1586,293 @@
         <div class="flex flex-col md:flex-row md:justify-between md:items-end gap-8 mb-10">
           <div class="md:w-1/2">
             <p class="text-xs font-bold tracking-[0.2em] text-[#2563EB] uppercase mb-2">Our Sectors</p>
-            <h2 class="text-4xl md:text-5xl font-serif text-[#1A1B41] leading-tight">Industries We <span class="italic">Operate In</span></h2>
+            <h2 class="text-4xl md:text-5xl font-serif text-[#1A1B41] leading-tight">Industries We <span
+                class="italic">Operate In</span></h2>
           </div>
           <div class="md:w-1/2 md:max-w-md">
             <p class="text-lg text-gray-600 italic border-l-2 border-[#2563EB]/30 pl-6">
-              Five sectors. Same model: we come in, figure out what's broken, fix it, and run it until you don't need us anymore.
+              Five sectors. Same model: we come in, figure out what's broken, fix it, and run it until you don't need us
+              anymore.
             </p>
           </div>
         </div>
-        
+
         <div class="grid grid-cols-1 md:grid-cols-12 gap-5">
-          <div class="md:col-span-3 flex flex-col group overflow-hidden rounded-xl h-[400px] shadow-lg card-hover-effect relative max-w-[280px] mx-auto w-full">
+          <div
+            class="md:col-span-3 flex flex-col group overflow-hidden rounded-xl h-[400px] shadow-lg card-hover-effect relative max-w-[280px] mx-auto w-full">
             <div class="relative w-full h-full">
-              <img alt="Healthcare" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="other_assets/industries_images/healthcare.jpg">
+              <img alt="Healthcare"
+                class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                src="other_assets/industries_images/healthcare.jpg">
               <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
             </div>
-            <div class="absolute bottom-0 left-0 right-0 p-5 bg-black/40 backdrop-blur-xl border-t border-white/20" style="min-height: 100px;">
+            <div class="absolute bottom-0 left-0 right-0 p-5 bg-black/40 backdrop-blur-xl border-t border-white/20"
+              style="min-height: 100px;">
               <div class="flex justify-between items-center mb-2">
                 <span class="text-xs font-bold tracking-widest text-white/70">01</span>
-                <span class="text-[10px] font-bold tracking-[0.2em] uppercase text-white bg-[#2563EB]/80 px-2 py-0.5 rounded-full">Healthcare</span>
+                <span
+                  class="text-[10px] font-bold tracking-[0.2em] uppercase text-white bg-[#2563EB]/80 px-2 py-0.5 rounded-full">Healthcare</span>
               </div>
               <h3 class="text-lg font-serif mb-1 text-white">Hospitals &amp; Chains</h3>
               <p class="text-sm leading-relaxed text-white/80">Execution systems for complex medical operations.</p>
             </div>
           </div>
-          
-          <div class="md:col-span-3 flex flex-col group overflow-hidden rounded-xl h-[400px] shadow-lg card-hover-effect relative max-w-[280px] mx-auto w-full">
+
+          <div
+            class="md:col-span-3 flex flex-col group overflow-hidden rounded-xl h-[400px] shadow-lg card-hover-effect relative max-w-[280px] mx-auto w-full">
             <div class="relative w-full h-full">
-              <img alt="Lifesciences" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="other_assets/industries_images/pharma.jpg">
+              <img alt="Lifesciences"
+                class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                src="other_assets/industries_images/pharma.jpg">
               <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
             </div>
-            <div class="absolute bottom-0 left-0 right-0 p-5 bg-black/40 backdrop-blur-xl border-t border-white/20" style="min-height: 100px;">
+            <div class="absolute bottom-0 left-0 right-0 p-5 bg-black/40 backdrop-blur-xl border-t border-white/20"
+              style="min-height: 100px;">
               <div class="flex justify-between items-center mb-2">
                 <span class="text-xs font-bold tracking-widest text-white/70">02</span>
-                <span class="text-[10px] font-bold tracking-[0.2em] uppercase text-white bg-[#2563EB]/80 px-2 py-0.5 rounded-full">Lifesciences</span>
+                <span
+                  class="text-[10px] font-bold tracking-[0.2em] uppercase text-white bg-[#2563EB]/80 px-2 py-0.5 rounded-full">Lifesciences</span>
               </div>
               <h3 class="text-lg font-serif mb-1 text-white">Lifesciences</h3>
               <p class="text-sm leading-relaxed text-white/80">Precision execution for complex facility builds.</p>
             </div>
           </div>
-          
-          <div class="md:col-span-3 flex flex-col group overflow-hidden rounded-xl h-[400px] shadow-lg card-hover-effect relative max-w-[280px] mx-auto w-full">
+
+          <div
+            class="md:col-span-3 flex flex-col group overflow-hidden rounded-xl h-[400px] shadow-lg card-hover-effect relative max-w-[280px] mx-auto w-full">
             <div class="relative w-full h-full">
-              <img alt="D2C Brands" class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105" src="other_assets/industries_images/d2c.jpg">
+              <img alt="D2C Brands"
+                class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                src="other_assets/industries_images/d2c.jpg">
               <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
             </div>
-            <div class="absolute bottom-0 left-0 right-0 p-5 bg-black/40 backdrop-blur-xl border-t border-white/20" style="min-height: 100px;">
+            <div class="absolute bottom-0 left-0 right-0 p-5 bg-black/40 backdrop-blur-xl border-t border-white/20"
+              style="min-height: 100px;">
               <div class="flex justify-between items-center mb-2">
                 <span class="text-xs font-bold tracking-widest text-white/70">03</span>
-                <span class="text-[10px] font-bold tracking-[0.2em] uppercase text-white bg-[#2563EB]/80 px-2 py-0.5 rounded-full">D2C Brands</span>
+                <span
+                  class="text-[10px] font-bold tracking-[0.2em] uppercase text-white bg-[#2563EB]/80 px-2 py-0.5 rounded-full">D2C
+                  Brands</span>
               </div>
               <h3 class="text-lg font-serif mb-1 text-white">D2C Brands</h3>
               <p class="text-sm leading-relaxed text-white/80">Go-to-market systems that scale profitably.</p>
             </div>
           </div>
-          
-          <div class="md:col-span-3 flex flex-col group overflow-hidden rounded-xl h-[400px] shadow-lg card-hover-effect relative max-w-[280px] mx-auto w-full">
+
+          <div
+            class="md:col-span-3 flex flex-col group overflow-hidden rounded-xl h-[400px] shadow-lg card-hover-effect relative max-w-[280px] mx-auto w-full">
+
+
             <div class="relative w-full h-full">
-              <img alt="Real Estate" class="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" src="other_assets/industries_images/realestate.jpg">
+
+              <img alt="Real Estate"
+                class="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                src="other_assets/industries_images/realestate.jpg">
               <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
             </div>
-            <div class="absolute bottom-0 left-0 right-0 p-5 bg-black/40 backdrop-blur-xl border-t border-white/20" style="min-height: 100px;">
+
+
+            <div class="absolute bottom-0 left-0 right-0 p-5 bg-black/40 backdrop-blur-xl border-t border-white/20"
+              style="min-height: 100px;">
               <div class="flex justify-between items-center mb-2">
                 <span class="text-xs font-bold tracking-widest text-white/70">04</span>
-                <span class="text-[10px] font-bold tracking-[0.2em] uppercase text-white bg-[#2563EB]/80 px-2 py-0.5 rounded-full">Real Estate</span>
+                <span
+                  class="text-[10px] font-bold tracking-[0.2em] uppercase text-white bg-[#2563EB]/80 px-2 py-0.5 rounded-full">Real
+                  Estate</span>
               </div>
               <h3 class="text-lg font-serif mb-1 text-white">Real Estate</h3>
               <p class="text-sm leading-relaxed text-white/80">Commercial &amp; residential execution.</p>
             </div>
+
+
+
+
           </div>
+
+
+          <div
+            class="md:col-span-3 flex flex-col group overflow-hidden rounded-xl h-[400px] shadow-lg card-hover-effect relative max-w-[280px] mx-auto w-full">
+
+            <div class="relative w-full h-full">
+
+              <img alt="Business Consulting"
+                class="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                src="other_assets/generalconsulting.jpg">
+
+              <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+            </div>
+
+
+            <div class="absolute bottom-0 left-0 right-0 p-5 bg-black/40 backdrop-blur-xl border-t border-white/20"
+              style="min-height: 100px;">
+
+              <div class="flex justify-between items-center mb-2">
+                <span class="text-xs font-bold tracking-widest text-white/70">05</span>
+
+                <span
+                  class="text-[10px] font-bold tracking-[0.2em] uppercase text-white bg-[#2563EB]/80 px-2 py-0.5 rounded-full">
+                  Consulting
+                </span>
+              </div>
+
+              <h3 class="text-lg font-serif mb-1 text-white">Business Consulting</h3>
+
+              <p class="text-sm leading-relaxed text-white/80">
+                Strategy, growth & operational excellence.
+              </p>
+            </div>
+
+          </div>
+
+
+
+
+
+
+
+
+
         </div>
       </div>
     </section>
 
     <!-- SECTION 04: Our Expertise -->
     <section class="relative py-16 lg:py-24 bg-[#0B132B]">
-      <div class="absolute inset-0 bg-cover bg-center bg-fixed" style="background-image: url('other_assets/services_background.jpg');"></div>
+      <div class="absolute inset-0 bg-cover bg-center bg-fixed"
+        style="background-image: url('other_assets/services_background.jpg');"></div>
       <div class="absolute inset-0 backdrop-blur-[1px] bg-black/30"></div>
-      
+
       <div class="relative z-10 max-w-[1280px] mx-auto px-6 lg:px-12 w-full">
         <div class="mb-12 border-l-4 border-[#2563EB] pl-6">
           <span class="text-[#2563EB] text-xs font-bold tracking-widest uppercase mb-2 block">Our Expertise</span>
-          <h1 class="text-3xl md:text-5xl font-serif text-white max-w-2xl leading-tight">Specialized Consulting Across Key Sectors</h1>
+          <h1 class="text-3xl md:text-5xl font-serif text-white max-w-2xl leading-tight">Specialized Consulting Across
+            Key Sectors</h1>
         </div>
-        
+
         <div class="border border-white/10 rounded-xl backdrop-blur-md overflow-hidden shadow-2xl bg-[#1A1B41]/90">
-          <div class="group flex flex-col md:flex-row border-b border-white/10 hover:bg-white/10 transition-all duration-300">
+          <div
+            class="group flex flex-col md:flex-row border-b border-white/10 hover:bg-white/10 transition-all duration-300">
             <div class="w-full md:w-1/3 p-6 lg:p-8 border-r border-white/10 flex items-center justify-between">
               <div>
                 <span class="text-[#2563EB] text-xs block mb-1">01</span>
-                <h3 class="text-xl lg:text-2xl font-serif text-white group-hover:text-[#60a5fa] transition-colors">Healthcare Consulting</h3>
+                <h3 class="text-xl lg:text-2xl font-serif text-white group-hover:text-[#60a5fa] transition-colors">
+                  Healthcare Consulting</h3>
               </div>
-              <span class="material-symbols-outlined text-[#2563EB] opacity-50 group-hover:opacity-100 transition-opacity">medical_services</span>
+              <span
+                class="material-symbols-outlined text-[#2563EB] opacity-50 group-hover:opacity-100 transition-opacity">medical_services</span>
             </div>
             <div class="w-full md:w-2/3 p-6 lg:p-8 flex flex-col justify-center">
-              <p class="text-gray-300 mb-4 leading-relaxed">Clinical operations redesign, revenue cycle optimization, Health-Tech strategy, compliance, and branding.</p>
+              <p class="text-gray-300 mb-4 leading-relaxed">Clinical operations redesign, revenue cycle optimization,
+                Health-Tech strategy, compliance, and branding.</p>
               <div class="flex flex-wrap gap-2">
-                <span class="px-3 py-1 bg-white/5 text-xs font-semibold rounded border border-white/10 text-gray-300">Operational Excellence</span>
-                <span class="px-3 py-1 bg-white/5 text-xs font-semibold rounded border border-white/10 text-gray-300">Compliance</span>
+                <span
+                  class="px-3 py-1 bg-white/5 text-xs font-semibold rounded border border-white/10 text-gray-300">Operational
+                  Excellence</span>
+                <span
+                  class="px-3 py-1 bg-white/5 text-xs font-semibold rounded border border-white/10 text-gray-300">Compliance</span>
               </div>
             </div>
           </div>
-          
-          <div class="group flex flex-col md:flex-row border-b border-white/10 hover:bg-white/10 transition-all duration-300">
+
+          <div
+            class="group flex flex-col md:flex-row border-b border-white/10 hover:bg-white/10 transition-all duration-300">
             <div class="w-full md:w-1/3 p-6 lg:p-8 border-r border-white/10 flex items-center justify-between">
               <div>
                 <span class="text-[#2563EB] text-xs block mb-1">02</span>
-                <h3 class="text-xl lg:text-2xl font-serif text-white group-hover:text-[#60a5fa] transition-colors">Pharmaceutical Consulting</h3>
+                <h3 class="text-xl lg:text-2xl font-serif text-white group-hover:text-[#60a5fa] transition-colors">
+                  Pharmaceutical Consulting</h3>
               </div>
-              <span class="material-symbols-outlined text-[#2563EB] opacity-50 group-hover:opacity-100 transition-opacity">biotech</span>
+              <span
+                class="material-symbols-outlined text-[#2563EB] opacity-50 group-hover:opacity-100 transition-opacity">biotech</span>
             </div>
             <div class="w-full md:w-2/3 p-6 lg:p-8 flex flex-col justify-center">
-              <p class="text-gray-300 mb-4 leading-relaxed">Pipeline strategy, regulatory affairs, commercial launches, and supply chain resilience.</p>
+              <p class="text-gray-300 mb-4 leading-relaxed">Pipeline strategy, regulatory affairs, commercial launches,
+                and supply chain resilience.</p>
               <div class="flex flex-wrap gap-2">
-                <span class="px-3 py-1 bg-white/5 text-xs font-semibold rounded border border-white/10 text-gray-300">Pipeline</span>
-                <span class="px-3 py-1 bg-white/5 text-xs font-semibold rounded border border-white/10 text-gray-300">Regulatory</span>
+                <span
+                  class="px-3 py-1 bg-white/5 text-xs font-semibold rounded border border-white/10 text-gray-300">Pipeline</span>
+                <span
+                  class="px-3 py-1 bg-white/5 text-xs font-semibold rounded border border-white/10 text-gray-300">Regulatory</span>
               </div>
             </div>
           </div>
-          
-          <div class="group flex flex-col md:flex-row border-b border-white/10 hover:bg-white/10 transition-all duration-300">
+
+          <div
+            class="group flex flex-col md:flex-row border-b border-white/10 hover:bg-white/10 transition-all duration-300">
             <div class="w-full md:w-1/3 p-6 lg:p-8 border-r border-white/10 flex items-center justify-between">
               <div>
                 <span class="text-[#2563EB] text-xs block mb-1">03</span>
-                <h3 class="text-xl lg:text-2xl font-serif text-white group-hover:text-[#60a5fa] transition-colors">Real Estate Consulting</h3>
+                <h3 class="text-xl lg:text-2xl font-serif text-white group-hover:text-[#60a5fa] transition-colors">Real
+                  Estate Consulting</h3>
               </div>
-              <span class="material-symbols-outlined text-[#2563EB] opacity-50 group-hover:opacity-100 transition-opacity">apartment</span>
+              <span
+                class="material-symbols-outlined text-[#2563EB] opacity-50 group-hover:opacity-100 transition-opacity">apartment</span>
             </div>
             <div class="w-full md:w-2/3 p-6 lg:p-8 flex flex-col justify-center">
-              <p class="text-gray-300 mb-4 leading-relaxed">AI-enabled advisory, branding &amp; marketing, project strategy, and operational excellence.</p>
+              <p class="text-gray-300 mb-4 leading-relaxed">AI-enabled advisory, branding &amp; marketing, project
+                strategy, and operational excellence.</p>
               <div class="flex flex-wrap gap-2">
-                <span class="px-3 py-1 bg-white/5 text-xs font-semibold rounded border border-white/10 text-gray-300">AI Advisory</span>
-                <span class="px-3 py-1 bg-white/5 text-xs font-semibold rounded border border-white/10 text-gray-300">Project Strategy</span>
+                <span class="px-3 py-1 bg-white/5 text-xs font-semibold rounded border border-white/10 text-gray-300">AI
+                  Advisory</span>
+                <span
+                  class="px-3 py-1 bg-white/5 text-xs font-semibold rounded border border-white/10 text-gray-300">Project
+                  Strategy</span>
               </div>
             </div>
           </div>
-          
-          <div class="group flex flex-col md:flex-row border-b border-white/10 hover:bg-white/10 transition-all duration-300">
+
+          <div
+            class="group flex flex-col md:flex-row border-b border-white/10 hover:bg-white/10 transition-all duration-300">
             <div class="w-full md:w-1/3 p-6 lg:p-8 border-r border-white/10 flex items-center justify-between">
               <div>
                 <span class="text-[#2563EB] text-xs block mb-1">04</span>
-                <h3 class="text-xl lg:text-2xl font-serif text-white group-hover:text-[#60a5fa] transition-colors">D2C Consulting</h3>
+                <h3 class="text-xl lg:text-2xl font-serif text-white group-hover:text-[#60a5fa] transition-colors">D2C
+                  Consulting</h3>
               </div>
-              <span class="material-symbols-outlined text-[#2563EB] opacity-50 group-hover:opacity-100 transition-opacity">shopping_cart</span>
+              <span
+                class="material-symbols-outlined text-[#2563EB] opacity-50 group-hover:opacity-100 transition-opacity">shopping_cart</span>
             </div>
             <div class="w-full md:w-2/3 p-6 lg:p-8 flex flex-col justify-center">
-              <p class="text-gray-300 mb-4 leading-relaxed">Brand positioning, omnichannel growth, unit economics, and scalable operations.</p>
+              <p class="text-gray-300 mb-4 leading-relaxed">Brand positioning, omnichannel growth, unit economics, and
+                scalable operations.</p>
               <div class="flex flex-wrap gap-2">
-                <span class="px-3 py-1 bg-white/5 text-xs font-semibold rounded border border-white/10 text-gray-300">Omnichannel</span>
-                <span class="px-3 py-1 bg-white/5 text-xs font-semibold rounded border border-white/10 text-gray-300">Unit Economics</span>
+                <span
+                  class="px-3 py-1 bg-white/5 text-xs font-semibold rounded border border-white/10 text-gray-300">Omnichannel</span>
+                <span
+                  class="px-3 py-1 bg-white/5 text-xs font-semibold rounded border border-white/10 text-gray-300">Unit
+                  Economics</span>
               </div>
             </div>
           </div>
-          
+
           <div class="group flex flex-col md:flex-row hover:bg-white/10 transition-all duration-300">
             <div class="w-full md:w-1/3 p-6 lg:p-8 border-r border-white/10 flex items-center justify-between">
               <div>
                 <span class="text-[#2563EB] text-xs block mb-1">05</span>
-                <h3 class="text-xl lg:text-2xl font-serif text-white group-hover:text-[#60a5fa] transition-colors">General Business Consulting</h3>
+                <h3 class="text-xl lg:text-2xl font-serif text-white group-hover:text-[#60a5fa] transition-colors">
+                  General Business Consulting</h3>
               </div>
-              <span class="material-symbols-outlined text-[#2563EB] opacity-50 group-hover:opacity-100 transition-opacity">corporate_fare</span>
+              <span
+                class="material-symbols-outlined text-[#2563EB] opacity-50 group-hover:opacity-100 transition-opacity">corporate_fare</span>
             </div>
             <div class="w-full md:w-2/3 p-6 lg:p-8 flex flex-col justify-center">
-              <p class="text-gray-300 mb-4 leading-relaxed">Corporate strategy, organizational design, financial performance, and transformation.</p>
+              <p class="text-gray-300 mb-4 leading-relaxed">Corporate strategy, organizational design, financial
+                performance, and transformation.</p>
               <div class="flex flex-wrap gap-2">
-                <span class="px-3 py-1 bg-white/5 text-xs font-semibold rounded border border-white/10 text-gray-300">Corporate Strategy</span>
-                <span class="px-3 py-1 bg-white/5 text-xs font-semibold rounded border border-white/10 text-gray-300">Transformation</span>
+                <span
+                  class="px-3 py-1 bg-white/5 text-xs font-semibold rounded border border-white/10 text-gray-300">Corporate
+                  Strategy</span>
+                <span
+                  class="px-3 py-1 bg-white/5 text-xs font-semibold rounded border border-white/10 text-gray-300">Transformation</span>
               </div>
             </div>
           </div>
         </div>
-        
+
         <div class="mt-8 flex justify-between items-center">
           <div class="hidden md:block h-px bg-white/20 flex-grow mr-8"></div>
-          <a href="services.html" class="bg-[#2563EB] text-white px-8 py-3 rounded-lg font-semibold flex items-center gap-2 hover:bg-[#1d4ed8] transition-colors group shadow-lg shadow-[#2563EB]/20">
+          <a href="services.html"
+            class="bg-[#2563EB] text-white px-8 py-3 rounded-lg font-semibold flex items-center gap-2 hover:bg-[#1d4ed8] transition-colors group shadow-lg shadow-[#2563EB]/20">
             View Detailed Services
             <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
           </a>
@@ -1351,21 +1885,26 @@
       <div class="max-w-6xl mx-auto px-6">
         <!-- Header -->
         <div class="text-center mb-12">
-          <span class="inline-block text-[10px] font-bold tracking-[0.2em] text-[#2563EB] uppercase mb-3 px-3 py-1 bg-[#2563EB]/10 rounded-full">OUR APPROACH</span>
+          <span
+            class="inline-block text-[10px] font-bold tracking-[0.2em] text-[#2563EB] uppercase mb-3 px-3 py-1 bg-[#2563EB]/10 rounded-full">OUR
+            APPROACH</span>
           <h1 class="text-3xl md:text-5xl font-serif text-[#0b132b] leading-[1.2]">
             A Systematic <span class="italic font-light text-[#2563EB]">Approach</span>
           </h1>
         </div>
-        
+
         <!-- Two Column Layout -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
-          
+
           <!-- Left Column: Editorial Vertical Steps -->
           <div class="relative" id="methodology-steps">
-            
+
             <!-- Phase 01 - Diagnose -->
-            <div class="phase-item relative pl-12 pb-6 border-l-2 border-[#0b132b] last:pb-0 transition-all duration-500 bg-[#0b132b]/5 -ml-4 pl-8 py-4 rounded-r-lg" data-phase="1">
-              <div class="absolute left-0 top-0 w-8 h-8 -translate-x-1/2 bg-[#0b132b] rounded-full flex items-center justify-center z-10 transition-all duration-500">
+            <div
+              class="phase-item relative pl-12 pb-6 border-l-2 border-[#0b132b] last:pb-0 transition-all duration-500 bg-[#0b132b]/5 -ml-4 pl-8 py-4 rounded-r-lg"
+              data-phase="1">
+              <div
+                class="absolute left-0 top-0 w-8 h-8 -translate-x-1/2 bg-[#0b132b] rounded-full flex items-center justify-center z-10 transition-all duration-500">
                 <span class="text-white text-xs font-bold">01</span>
               </div>
               <div class="phase-content transition-all duration-500">
@@ -1387,10 +1926,13 @@
                 </div>
               </div>
             </div>
-            
+
             <!-- Phase 02 - Design -->
-            <div class="phase-item relative pl-12 pb-6 border-l-2 border-[#0b132b] last:pb-0 transition-all duration-500" data-phase="2">
-              <div class="absolute left-0 top-0 w-8 h-8 -translate-x-1/2 bg-white border-2 border-[#0b132b] rounded-full flex items-center justify-center z-10 transition-all duration-500">
+            <div
+              class="phase-item relative pl-12 pb-6 border-l-2 border-[#0b132b] last:pb-0 transition-all duration-500"
+              data-phase="2">
+              <div
+                class="absolute left-0 top-0 w-8 h-8 -translate-x-1/2 bg-white border-2 border-[#0b132b] rounded-full flex items-center justify-center z-10 transition-all duration-500">
                 <span class="text-[#0b132b] text-xs font-bold">02</span>
               </div>
               <div class="phase-content transition-all duration-500">
@@ -1412,10 +1954,12 @@
                 </div>
               </div>
             </div>
-            
+
             <!-- Phase 03 - Deliver -->
-            <div class="phase-item relative pl-12 border-l-2 border-[#0b132b] transition-all duration-500" data-phase="3">
-              <div class="absolute left-0 top-0 w-8 h-8 -translate-x-1/2 bg-white border-2 border-[#0b132b] rounded-full flex items-center justify-center z-10 transition-all duration-500">
+            <div class="phase-item relative pl-12 border-l-2 border-[#0b132b] transition-all duration-500"
+              data-phase="3">
+              <div
+                class="absolute left-0 top-0 w-8 h-8 -translate-x-1/2 bg-white border-2 border-[#0b132b] rounded-full flex items-center justify-center z-10 transition-all duration-500">
                 <span class="text-[#0b132b] text-xs font-bold">03</span>
               </div>
               <div class="phase-content transition-all duration-500">
@@ -1437,96 +1981,109 @@
                 </div>
               </div>
             </div>
-            
+
           </div>
-          
+
           <!-- Right Column: Image Mosaic Slideshow -->
           <div class="relative">
             <div class="sticky top-12">
-              <div class="mosaic-slideshow relative rounded-2xl overflow-hidden bg-[#0b132b] h-[450px] lg:h-[550px]" id="mosaic-slideshow">
-                
+              <div class="mosaic-slideshow relative rounded-2xl overflow-hidden bg-[#0b132b] h-[450px] lg:h-[550px]"
+                id="mosaic-slideshow">
+
                 <!-- Slide 1: Phase 1 Images -->
                 <div class="mosaic-slide active" data-phase="1">
                   <div class="grid grid-cols-4 grid-rows-4 gap-[4px] h-full">
                     <div class="col-span-2 row-span-2">
-                      <img src="other_assets/methodology_images/aitech__expertise-img--03.jpg" alt="Diagnose 1" class="w-full h-full object-cover">
+                      <img src="other_assets/methodology_images/aitech__expertise-img--03.jpg" alt="Diagnose 1"
+                        class="w-full h-full object-cover">
                     </div>
                     <div class="col-span-2 row-span-2">
-                      <img src="other_assets/methodology_images/healthcare__expertise-img--02.jpg" alt="Diagnose 2" class="w-full h-full object-cover">
+                      <img src="other_assets/methodology_images/healthcare__expertise-img--02.jpg" alt="Diagnose 2"
+                        class="w-full h-full object-cover">
                     </div>
                     <div class="col-span-2 row-span-2">
-                      <img src="other_assets/methodology_images/industries__card-img--hospitals-02.jpg" alt="Diagnose 3" class="w-full h-full object-cover">
+                      <img src="other_assets/methodology_images/industries__card-img--hospitals-02.jpg" alt="Diagnose 3"
+                        class="w-full h-full object-cover">
                     </div>
                     <div class="col-span-2 row-span-2">
-                      <img src="other_assets/methodology_images/industries__card-img--aitech-01.jpg" alt="Diagnose 4" class="w-full h-full object-cover">
+                      <img src="other_assets/methodology_images/industries__card-img--aitech-01.jpg" alt="Diagnose 4"
+                        class="w-full h-full object-cover">
                     </div>
                   </div>
                 </div>
-                
+
                 <!-- Slide 2: Phase 2 Images -->
                 <div class="mosaic-slide" data-phase="2">
                   <div class="grid grid-cols-4 grid-rows-4 gap-[4px] h-full">
                     <div class="col-span-4 row-span-2">
-                      <img src="other_assets/methodology_images/blog-card__img--construction-02.jpg" alt="Design 1" class="w-full h-full object-cover">
+                      <img src="other_assets/methodology_images/blog-card__img--construction-02.jpg" alt="Design 1"
+                        class="w-full h-full object-cover">
                     </div>
                     <div class="col-span-2 row-span-2">
-                      <img src="other_assets/methodology_images/blog-card__img--brand-01.jpg" alt="Design 2" class="w-full h-full object-cover">
+                      <img src="other_assets/methodology_images/blog-card__img--brand-01.jpg" alt="Design 2"
+                        class="w-full h-full object-cover">
                     </div>
                     <div class="col-span-2 row-span-2">
-                      <img src="other_assets/methodology_images/blog-card__img--kt-02.jpg" alt="Design 3" class="w-full h-full object-cover">
+                      <img src="other_assets/methodology_images/blog-card__img--kt-02.jpg" alt="Design 3"
+                        class="w-full h-full object-cover">
                     </div>
                   </div>
                 </div>
-                
+
                 <!-- Slide 3: Phase 3 Images -->
                 <div class="mosaic-slide" data-phase="3">
                   <div class="grid grid-cols-4 grid-rows-4 gap-[4px] h-full">
                     <div class="col-span-2 row-span-4">
-                      <img src="other_assets/methodology_images/realestate__expertise-img--03.jpg" alt="Deliver 1" class="w-full h-full object-cover">
+                      <img src="other_assets/methodology_images/realestate__expertise-img--03.jpg" alt="Deliver 1"
+                        class="w-full h-full object-cover">
                     </div>
                     <div class="col-span-2 row-span-2">
-                      <img src="other_assets/methodology_images/blog-card__img--surrogate-02.jpg" alt="Deliver 2" class="w-full h-full object-cover">
+                      <img src="other_assets/methodology_images/blog-card__img--surrogate-02.jpg" alt="Deliver 2"
+                        class="w-full h-full object-cover">
                     </div>
                     <div class="col-span-2 row-span-2">
-                      <img src="other_assets/methodology_images/industries__card-img--hospitals-04.jpg" alt="Deliver 3" class="w-full h-full object-cover">
+                      <img src="other_assets/methodology_images/industries__card-img--hospitals-04.jpg" alt="Deliver 3"
+                        class="w-full h-full object-cover">
                     </div>
                   </div>
                 </div>
-                
+
                 <!-- Slide Indicator -->
                 <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20">
                   <span class="slide-dot w-2 h-2 rounded-full bg-white/50 transition-all duration-300 active"></span>
                   <span class="slide-dot w-2 h-2 rounded-full bg-white/50 transition-all duration-300"></span>
                   <span class="slide-dot w-2 h-2 rounded-full bg-white/50 transition-all duration-300"></span>
                 </div>
-                
+
               </div>
             </div>
           </div>
-          
+
         </div>
       </div>
     </section>
-    
+
     <style>
       .mosaic-slideshow {
         position: relative;
       }
+
       .mosaic-slide {
         display: none !important;
         position: absolute;
         inset: 0;
       }
+
       .mosaic-slide.active {
         display: block !important;
       }
     </style>
-    
+
     <script>
       let currentPhase = 1;
       const totalPhases = 3;
       const intervalTime = 3000;
-      
+
       function updateActivePhase(phase) {
         // Update left column
         document.querySelectorAll('.phase-item').forEach(item => {
@@ -1570,7 +2127,7 @@
             });
           }
         });
-        
+
         // Update right column slides
         document.querySelectorAll('.mosaic-slide').forEach(slide => {
           if (slide.dataset.phase == phase) {
@@ -1579,7 +2136,7 @@
             slide.classList.remove('active');
           }
         });
-        
+
         // Update dots
         document.querySelectorAll('.slide-dot').forEach((dot, index) => {
           if (index + 1 == phase) {
@@ -1591,45 +2148,49 @@
           }
         });
       }
-      
+
       function nextPhase() {
         currentPhase = currentPhase >= totalPhases ? 1 : currentPhase + 1;
         updateActivePhase(currentPhase);
       }
-      
+
       // Start slideshow
       setInterval(nextPhase, intervalTime);
-      
+
       // Initialize
       updateActivePhase(1);
     </script>
 
-<!-- SECTION 06: Why Sapphire Intel -->
+    <!-- SECTION 06: Why Sapphire Intel -->
     <section class="relative py-16 lg:py-24 bg-[#1A1B41]">
-      <div class="absolute inset-0 bg-cover bg-center bg-fixed" style="background-image: url('other_assets/why_sic.png');"></div>
+      <div class="absolute inset-0 bg-cover bg-center bg-fixed"
+        style="background-image: url('other_assets/why_sic.png');"></div>
       <div class="absolute inset-0 backdrop-blur-[1px] bg-black/30"></div>
-      
+
       <div class="relative z-10 max-w-[1200px] mx-auto px-4 lg:px-8">
-        
+
         <!-- Header -->
         <div class="mb-12">
-          <span class="inline-block text-[10px] font-bold tracking-[0.2em] text-white uppercase mb-4">Why Organizations Choose Us</span>
+          <span class="inline-block text-[10px] font-bold tracking-[0.2em] text-white uppercase mb-4">Why Organizations
+            Choose Us</span>
           <h1 class="text-3xl md:text-5xl font-serif text-white leading-tight max-w-3xl">
             Advisory Excellence Backed by <span class="italic font-light">Decades of Domain Mastery</span>
           </h1>
         </div>
-        
-<!-- Editorial Grid -->
+
+        <!-- Editorial Grid -->
         <div class="grid grid-cols-12 gap-6 lg:gap-8">
-          
+
           <!-- Primary Block: Intro -->
-          <div class="col-span-12 lg:col-span-4 bg-[#1A1B41]/90 backdrop-blur-md border border-white/10 rounded-xl p-8 lg:p-10">
+          <div
+            class="col-span-12 lg:col-span-4 bg-[#1A1B41]/90 backdrop-blur-md border border-white/10 rounded-xl p-8 lg:p-10">
             <div class="mb-6">
               <span class="text-[10px] font-bold tracking-[0.2em] text-white uppercase">Core Differentiator</span>
             </div>
             <h2 class="text-2xl font-serif text-white mb-4">Strategic Intelligence.<br>Measurable Outcomes.</h2>
-            <p class="text-sm text-white/70 leading-relaxed mb-8">We bridge the gap between insight and implementation, delivering intelligence that translates into tangible business impact across every engagement.</p>
-            
+            <p class="text-sm text-white/70 leading-relaxed mb-8">We bridge the gap between insight and implementation,
+              delivering intelligence that translates into tangible business impact across every engagement.</p>
+
             <div class="space-y-3">
               <div class="flex items-center gap-3">
                 <div class="w-1 h-8 bg-white"></div>
@@ -1645,46 +2206,59 @@
               </div>
             </div>
           </div>
-          
+
           <!-- Card 1: Deep Industry Expertise -->
-          <div class="col-span-12 md:col-span-6 lg:col-span-4 bg-white/90 backdrop-blur-md border border-white/10 rounded-xl p-6 lg:p-8">
+          <div
+            class="col-span-12 md:col-span-6 lg:col-span-4 bg-white/90 backdrop-blur-md border border-white/10 rounded-xl p-6 lg:p-8">
             <div class="flex items-start justify-between mb-6">
               <div>
-                <span class="text-[10px] font-bold tracking-[0.2em] text-[#0B132B]/60 uppercase mb-2 block">Expertise</span>
+                <span
+                  class="text-[10px] font-bold tracking-[0.2em] text-[#0B132B]/60 uppercase mb-2 block">Expertise</span>
                 <h3 class="text-xl font-serif text-[#0B132B]">Deep Industry Expertise</h3>
               </div>
               <span class="material-symbols-outlined text-[#0B132B]/40 text-2xl">domain</span>
             </div>
-            
-            <p class="text-sm text-[#0B132B]/70 mb-6">Specialized intelligence refined across global markets and complex regulatory landscapes.</p>
-            
+
+            <p class="text-sm text-[#0B132B]/70 mb-6">Specialized intelligence refined across global markets and complex
+              regulatory landscapes.</p>
+
             <div class="flex flex-wrap gap-2">
-              <span class="text-[10px] font-semibold bg-[#0B132B]/10 text-[#0B132B] px-3 py-1.5 rounded-full border border-[#0B132B]/20">Healthcare</span>
-              <span class="text-[10px] font-semibold bg-[#0B132B]/10 text-[#0B132B] px-3 py-1.5 rounded-full border border-[#0B132B]/20">Pharmaceuticals</span>
-              <span class="text-[10px] font-semibold bg-[#0B132B]/10 text-[#0B132B] px-3 py-1.5 rounded-full border border-[#0B132B]/20">Real Estate</span>
-              <span class="text-[10px] font-semibold bg-[#0B132B]/10 text-[#0B132B] px-3 py-1.5 rounded-full border border-[#0B132B]/20">D2C</span>
-              <span class="text-[10px] font-semibold bg-[#0B132B]/10 text-[#0B132B] px-3 py-1.5 rounded-full border border-[#0B132B]/20">General Business</span>
+              <span
+                class="text-[10px] font-semibold bg-[#0B132B]/10 text-[#0B132B] px-3 py-1.5 rounded-full border border-[#0B132B]/20">Healthcare</span>
+              <span
+                class="text-[10px] font-semibold bg-[#0B132B]/10 text-[#0B132B] px-3 py-1.5 rounded-full border border-[#0B132B]/20">Pharmaceuticals</span>
+              <span
+                class="text-[10px] font-semibold bg-[#0B132B]/10 text-[#0B132B] px-3 py-1.5 rounded-full border border-[#0B132B]/20">Real
+                Estate</span>
+              <span
+                class="text-[10px] font-semibold bg-[#0B132B]/10 text-[#0B132B] px-3 py-1.5 rounded-full border border-[#0B132B]/20">D2C</span>
+              <span
+                class="text-[10px] font-semibold bg-[#0B132B]/10 text-[#0B132B] px-3 py-1.5 rounded-full border border-[#0B132B]/20">General
+                Business</span>
             </div>
-            
+
             <div class="mt-6 pt-4 border-t border-[#0B132B]/10 flex items-center gap-4">
               <span class="text-[10px] text-[#0B132B]/40 uppercase tracking-wider">5 Verticals</span>
               <span class="text-[10px] text-[#0B132B]/40">•</span>
               <span class="text-[10px] text-[#0B132B]/40 uppercase tracking-wider">12+ Markets</span>
             </div>
           </div>
-          
+
           <!-- Card 2: Strategy + Execution -->
-          <div class="col-span-12 md:col-span-6 lg:col-span-4 bg-white/90 backdrop-blur-md border border-white/10 rounded-xl p-6 lg:p-8">
+          <div
+            class="col-span-12 md:col-span-6 lg:col-span-4 bg-white/90 backdrop-blur-md border border-white/10 rounded-xl p-6 lg:p-8">
             <div class="flex items-start justify-between mb-4">
               <div>
-                <span class="text-[10px] font-bold tracking-[0.2em] text-[#0B132B]/60 uppercase mb-2 block">Approach</span>
+                <span
+                  class="text-[10px] font-bold tracking-[0.2em] text-[#0B132B]/60 uppercase mb-2 block">Approach</span>
                 <h3 class="text-xl font-serif text-[#0B132B]">Strategy + Execution</h3>
               </div>
               <span class="material-symbols-outlined text-[#0B132B]/40 text-2xl">account_tree</span>
             </div>
-            
-            <p class="text-sm text-[#0B132B]/70 mb-5">Moving beyond theory into actionable frameworks that drive tangible organizational change.</p>
-            
+
+            <p class="text-sm text-[#0B132B]/70 mb-5">Moving beyond theory into actionable frameworks that drive
+              tangible organizational change.</p>
+
             <div class="flex items-center gap-3">
               <div class="flex items-center gap-1">
                 <div class="w-2 h-2 rounded-full bg-[#0B132B]/80"></div>
@@ -1702,21 +2276,24 @@
               </div>
             </div>
           </div>
-          
+
           <!-- Card 3: Results-Oriented -->
-          <div class="col-span-12 md:col-span-6 bg-[#1A1B41]/90 backdrop-blur-md border border-white/10 rounded-xl p-6 lg:p-8 relative overflow-hidden">
+          <div
+            class="col-span-12 md:col-span-6 bg-[#1A1B41]/90 backdrop-blur-md border border-white/10 rounded-xl p-6 lg:p-8 relative overflow-hidden">
             <div class="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -mr-16 -mt-16"></div>
             <div class="relative">
               <div class="flex items-start justify-between mb-4">
                 <div>
-                  <span class="text-[10px] font-bold tracking-[0.2em] text-white/60 uppercase mb-2 block">Accountability</span>
+                  <span
+                    class="text-[10px] font-bold tracking-[0.2em] text-white/60 uppercase mb-2 block">Accountability</span>
                   <h3 class="text-xl font-serif text-white">Results-Oriented Approach</h3>
                 </div>
                 <span class="material-symbols-outlined text-white/40 text-2xl">insights</span>
               </div>
-              
-              <p class="text-sm text-white/70 mb-6">Precision-engineered solutions designed to deliver measurable ROI in high-stakes environments.</p>
-              
+
+              <p class="text-sm text-white/70 mb-6">Precision-engineered solutions designed to deliver measurable ROI in
+                high-stakes environments.</p>
+
               <div class="grid grid-cols-3 gap-4">
                 <div class="text-center">
                   <span class="text-2xl font-serif text-white block">98%</span>
@@ -1727,92 +2304,133 @@
                   <span class="text-[10px] text-white/40 uppercase tracking-wider">Avg ROI</span>
                 </div>
                 <div class="text-center">
-                  <span class="text-2xl font-serif text-white block">500+</span>
+                  <span class="text-2xl font-serif text-white block">50+</span>
                   <span class="text-[10px] text-white/40 uppercase tracking-wider">Engagements</span>
                 </div>
               </div>
             </div>
           </div>
-          
+
           <!-- Card 4: Authoritative & Trusted -->
-          <div class="col-span-12 md:col-span-6 bg-[#1A1B41]/90 backdrop-blur-md border border-white/10 rounded-xl p-6 lg:p-8">
+          <div
+            class="col-span-12 md:col-span-6 bg-[#1A1B41]/90 backdrop-blur-md border border-white/10 rounded-xl p-6 lg:p-8">
             <div class="flex items-start justify-between mb-4">
               <div>
-                <span class="text-[10px] font-bold tracking-[0.2em] text-white/60 uppercase mb-2 block">Credential</span>
+                <span
+                  class="text-[10px] font-bold tracking-[0.2em] text-white/60 uppercase mb-2 block">Credential</span>
                 <h3 class="text-xl font-serif text-white">Authoritative & Trusted</h3>
               </div>
               <span class="material-symbols-outlined text-white/30 text-2xl">verified_user</span>
             </div>
-            
-            <p class="text-sm text-white/70 mb-6">The definitive choice for Fortune 500 boards and international government entities.</p>
-            
+
+            <p class="text-sm text-white/70 mb-6">The definitive choice for Fortune 500 boards and international
+              government entities.</p>
+
             <div class="flex items-center gap-4">
               <div class="flex -space-x-2">
-                <div class="w-6 h-6 rounded-full bg-white/20 border border-white/10 flex items-center justify-center text-[8px] font-bold text-white">F</div>
-                <div class="w-6 h-6 rounded-full bg-white/20 border border-white/10 flex items-center justify-center text-[8px] font-bold text-white">G</div>
-                <div class="w-6 h-6 rounded-full bg-white/20 border border-white/10 flex items-center justify-center text-[8px] font-bold text-white">M</div>
+                <div
+                  class="w-6 h-6 rounded-full bg-white/20 border border-white/10 flex items-center justify-center text-[8px] font-bold text-white">
+                  F</div>
+                <div
+                  class="w-6 h-6 rounded-full bg-white/20 border border-white/10 flex items-center justify-center text-[8px] font-bold text-white">
+                  G</div>
+                <div
+                  class="w-6 h-6 rounded-full bg-white/20 border border-white/10 flex items-center justify-center text-[8px] font-bold text-white">
+                  M</div>
               </div>
               <span class="text-[10px] text-white/40 uppercase tracking-wider">Enterprise Clients</span>
             </div>
           </div>
-          
+
         </div>
       </div>
     </section>
 
     <!-- SECTION 08: Contact Form -->
-    <section class="py-16 lg:py-24 bg-cover bg-center relative" style="background-image: url('other_assets/contact_bg.png');">
+    <section class="py-16 lg:py-24 bg-cover bg-center relative"
+      style="background-image: url('other_assets/contact_bg.png');">
       <div class="absolute inset-0 bg-black/40"></div>
       <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div class="rounded-lg shadow-sm border border-gray-100 overflow-hidden flex flex-col lg:flex-row" style="border-radius: 5px;">
-          <div class="lg:w-1/2 p-8 lg:p-12 lg:pr-16 border-b lg:border-b-0 lg:border-r border-gray-100 flex flex-col justify-center bg-white/95">
+        <div class="rounded-lg shadow-sm border border-gray-100 overflow-hidden flex flex-col lg:flex-row"
+          style="border-radius: 5px;">
+          <div
+            class="lg:w-1/2 p-8 lg:p-12 lg:pr-16 border-b lg:border-b-0 lg:border-r border-gray-100 flex flex-col justify-center bg-white/95">
             <div class="mb-4">
               <span class="text-xs font-semibold tracking-wider text-[#2E3192] uppercase">READY TO TRANSFORM?</span>
             </div>
-            <h2 class="text-3xl lg:text-4xl font-serif text-[#1F2937] leading-tight mb-6">Let's Start a <br><span class="italic font-light">Conversation</span></h2>
-            <p class="text-gray-700 text-sm leading-relaxed mb-6 font-medium">Whether you are navigating a complex turnaround, scaling a D2C brand, or optimizing healthcare operations, our execution-first approach ensures your capital drives measurable value.</p>
+            <h2 class="text-3xl lg:text-4xl font-serif text-[#1F2937] leading-tight mb-6">Let's Start a <br><span
+                class="italic font-light">Conversation</span></h2>
+            <p class="text-gray-700 text-sm leading-relaxed mb-6 font-medium">Whether you are navigating a complex
+              turnaround, scaling a D2C brand, or optimizing healthcare operations, our execution-first approach ensures
+              your capital drives measurable value.</p>
             <div class="mb-8">
-              <h4 class="text-[10px] font-bold uppercase tracking-widest text-[#2E3192] mb-3 border-b border-[#2E3192]/10 pb-1">Strategic Pillars</h4>
+              <h4
+                class="text-[10px] font-bold uppercase tracking-widest text-[#2E3192] mb-3 border-b border-[#2E3192]/10 pb-1">
+                Strategic Pillars</h4>
               <ul class="grid grid-cols-1 gap-y-2">
-                <li class="flex items-center text-xs text-[#1F2937] font-semibold"><span class="w-1.5 h-1.5 bg-[#2E3192] rounded-full mr-2"></span>48-Hour Response Commitment</li>
-                <li class="flex items-center text-xs text-[#1F2937] font-semibold"><span class="w-1.5 h-1.5 bg-[#2E3192] rounded-full mr-2"></span>On-Ground Operational Control</li>
-                <li class="flex items-center text-xs text-[#1F2937] font-semibold"><span class="w-1.5 h-1.5 bg-[#2E3192] rounded-full mr-2"></span>Data-Driven Diligence</li>
-                <li class="flex items-center text-xs text-[#1F2937] font-semibold"><span class="w-1.5 h-1.5 bg-[#2E3192] rounded-full mr-2"></span>Institutional Grade Reporting</li>
+                <li class="flex items-center text-xs text-[#1F2937] font-semibold"><span
+                    class="w-1.5 h-1.5 bg-[#2E3192] rounded-full mr-2"></span>48-Hour Response Commitment</li>
+                <li class="flex items-center text-xs text-[#1F2937] font-semibold"><span
+                    class="w-1.5 h-1.5 bg-[#2E3192] rounded-full mr-2"></span>On-Ground Operational Control</li>
+                <li class="flex items-center text-xs text-[#1F2937] font-semibold"><span
+                    class="w-1.5 h-1.5 bg-[#2E3192] rounded-full mr-2"></span>Data-Driven Diligence</li>
+                <li class="flex items-center text-xs text-[#1F2937] font-semibold"><span
+                    class="w-1.5 h-1.5 bg-[#2E3192] rounded-full mr-2"></span>Institutional Grade Reporting</li>
               </ul>
             </div>
             <div class="space-y-4 mt-4">
-              <div class="flex items-center text-gray-600"><span class="material-symbols-outlined mr-4 text-[#2E3192]">mail</span><span class="">Suraj@sapphireintelconsulting.com</span></div>
-              <div class="flex items-center text-gray-600"><span class="material-symbols-outlined mr-4 text-[#2E3192]">call</span><span class="">+91 8309664580</span></div>
-              <div class="flex items-center text-gray-600"><span class="material-symbols-outlined mr-4 text-[#2E3192]">chat</span><span class="">WhatsApp: +91 8309664580</span></div>
-              <div class="flex items-center text-gray-600"><span class="material-symbols-outlined mr-4 text-[#2E3192]">location_on</span><span class="">1-10-176, Mayur Marg, Begumpet, Hyderabad, Telangana 500016</span></div>
+              <div class="flex items-center text-gray-600"><span
+                  class="material-symbols-outlined mr-4 text-[#2E3192]">mail</span><span
+                  class="">Suraj@sapphireintelconsulting.com</span></div>
+              <div class="flex items-center text-gray-600"><span
+                  class="material-symbols-outlined mr-4 text-[#2E3192]">call</span><span class="">+91 8309664580</span>
+              </div>
+              <div class="flex items-center text-gray-600"><span
+                  class="material-symbols-outlined mr-4 text-[#2E3192]">chat</span><span class="">WhatsApp: +91
+                  8309664580</span></div>
+              <div class="flex items-center text-gray-600"><span
+                  class="material-symbols-outlined mr-4 text-[#2E3192]">location_on</span><span class="">1-10-176, Mayur
+                  Marg, Begumpet, Hyderabad, Telangana 500016</span></div>
             </div>
           </div>
           <div class="lg:w-1/2 p-8 lg:p-12 flex flex-col justify-center bg-white">
             <h3 class="text-lg font-semibold text-[#1F2937] mb-4">Tell us about your requirements</h3>
-            <form name="homepage-contact" class="space-y-3" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+            <form name="homepage-contact" class="space-y-3" method="POST" data-netlify="true"
+              netlify-honeypot="bot-field">
               <input type="hidden" name="form-name" value="homepage-contact">
               <p class="hidden">
                 <label>Do not fill this out if you are human: <input name="bot-field"></label>
               </p>
               <div>
                 <label class="sr-only" for="name">Name</label>
-                <input class="w-full rounded-md border-gray-200 shadow-sm focus:border-[#2E3192] focus:ring focus:ring-[#2E3192] focus:ring-opacity-50 py-2.5 px-4 text-sm bg-white" id="name" name="name" placeholder="Name" required type="text" style="border-radius: 5px;">
+                <input
+                  class="w-full rounded-md border-gray-200 shadow-sm focus:border-[#2E3192] focus:ring focus:ring-[#2E3192] focus:ring-opacity-50 py-2.5 px-4 text-sm bg-white"
+                  id="name" name="name" placeholder="Name" required type="text" style="border-radius: 5px;">
               </div>
               <div>
                 <label class="sr-only" for="company-designation">Company &amp; Designation</label>
-                <input class="w-full rounded-md border-gray-200 shadow-sm focus:border-[#2E3192] focus:ring focus:ring-[#2E3192] focus:ring-opacity-50 py-2.5 px-4 text-sm bg-white" id="company-designation" name="company_designation" placeholder="Company &amp; Designation" required type="text" style="border-radius: 5px;">
+                <input
+                  class="w-full rounded-md border-gray-200 shadow-sm focus:border-[#2E3192] focus:ring focus:ring-[#2E3192] focus:ring-opacity-50 py-2.5 px-4 text-sm bg-white"
+                  id="company-designation" name="company_designation" placeholder="Company &amp; Designation" required
+                  type="text" style="border-radius: 5px;">
               </div>
               <div>
                 <label class="sr-only" for="email">Email</label>
-                <input class="w-full rounded-md border-gray-200 shadow-sm focus:border-[#2E3192] focus:ring focus:ring-[#2E3192] focus:ring-opacity-50 py-2.5 px-4 text-sm bg-white" id="email" name="email" placeholder="Email" required type="email" style="border-radius: 5px;">
+                <input
+                  class="w-full rounded-md border-gray-200 shadow-sm focus:border-[#2E3192] focus:ring focus:ring-[#2E3192] focus:ring-opacity-50 py-2.5 px-4 text-sm bg-white"
+                  id="email" name="email" placeholder="Email" required type="email" style="border-radius: 5px;">
               </div>
               <div>
                 <label class="sr-only" for="phone">Phone</label>
-                <input class="w-full rounded-md border-gray-200 shadow-sm focus:border-[#2E3192] focus:ring focus:ring-[#2E3192] focus:ring-opacity-50 py-2.5 px-4 text-sm bg-white" id="phone" name="phone" placeholder="Phone" type="tel" style="border-radius: 5px;">
+                <input
+                  class="w-full rounded-md border-gray-200 shadow-sm focus:border-[#2E3192] focus:ring focus:ring-[#2E3192] focus:ring-opacity-50 py-2.5 px-4 text-sm bg-white"
+                  id="phone" name="phone" placeholder="Phone" type="tel" style="border-radius: 5px;">
               </div>
               <div>
                 <label class="sr-only" for="sector">Sector of Interest</label>
-                <select class="w-full rounded-md border-gray-200 shadow-sm focus:border-[#2E3192] focus:ring focus:ring-[#2E3192] focus:ring-opacity-50 py-2.5 px-4 text-sm bg-white" id="sector" name="sector" style="border-radius: 5px;">
+                <select
+                  class="w-full rounded-md border-gray-200 shadow-sm focus:border-[#2E3192] focus:ring focus:ring-[#2E3192] focus:ring-opacity-50 py-2.5 px-4 text-sm bg-white"
+                  id="sector" name="sector" style="border-radius: 5px;">
                   <option disabled selected value="">Sector of Interest</option>
                   <option value="Healthcare">Healthcare</option>
                   <option value="Lifesciences">Lifesciences</option>
@@ -1821,7 +2439,9 @@
                   <option value="General Business">General Business</option>
                 </select>
               </div>
-              <button type="submit" class="w-full bg-[#2E3192] text-white font-semibold py-3 rounded-md hover:bg-[#252681] transition-colors" style="border-radius: 5px;">Submit Inquiry</button>
+              <button type="submit"
+                class="w-full bg-[#2E3192] text-white font-semibold py-3 rounded-md hover:bg-[#252681] transition-colors"
+                style="border-radius: 5px;">Submit Inquiry</button>
             </form>
           </div>
         </div>
@@ -1836,39 +2456,46 @@
       <div class="grid grid-cols-1 md:grid-cols-12 gap-y-12 md:gap-x-12 items-start">
         <div class="md:col-span-4 flex flex-col justify-start">
           <div class="mb-6">
-            <span class="font-semibold text-2xl text-white tracking-tight">Sapphire<br>Intelligence</span>
+            <span class="font-semibold text-2xl text-white tracking-tight">Sapphire<br>Intel Consulting</span>
           </div>
           <p class="text-lg text-gray-400 max-w-xs leading-relaxed">
             Strategic Execution<br>for High-Stakes<br>Capital
           </p>
         </div>
-        
+
         <div class="md:col-span-2">
           <h3 class="text-white font-semibold uppercase tracking-widest text-[10px] mb-8">Expertise</h3>
           <ul class="space-y-4">
-            <li><a class="text-gray-400 hover:text-white transition-colors duration-200 block text-sm" href="services-healthcare.html">Healthcare</a></li>
-            <li><a class="text-gray-400 hover:text-white transition-colors duration-200 block text-sm" href="services-pharma.html">Pharma</a></li>
-            <li><a class="text-gray-400 hover:text-white transition-colors duration-200 block text-sm" href="services-d2c.html">D2C</a></li>
-            <li><a class="text-gray-400 hover:text-white transition-colors duration-200 block text-sm" href="services-real-estate.html">Real Estate</a></li>
-            <li><a class="text-gray-400 hover:text-white transition-colors duration-200 block text-sm" href="services-general.html">General Business</a></li>
+            <li><a class="text-gray-400 hover:text-white transition-colors duration-200 block text-sm"
+                href="services-healthcare.html">Healthcare</a></li>
+            <li><a class="text-gray-400 hover:text-white transition-colors duration-200 block text-sm"
+                href="services-pharma.html">Pharma</a></li>
+            <li><a class="text-gray-400 hover:text-white transition-colors duration-200 block text-sm"
+                href="services-d2c.html">D2C</a></li>
+            <li><a class="text-gray-400 hover:text-white transition-colors duration-200 block text-sm"
+                href="services-real-estate.html">Real Estate</a></li>
+            <li><a class="text-gray-400 hover:text-white transition-colors duration-200 block text-sm"
+                href="services-general.html">General Business</a></li>
           </ul>
         </div>
-        
+
         <div class="md:col-span-3">
           <h3 class="text-white font-semibold uppercase tracking-widest text-[10px] mb-8">Global Offices</h3>
           <div class="space-y-6 text-gray-400">
             <div>
               <p class="text-white font-medium text-sm">Hyderabad</p>
-              <p class="text-[11px] mt-1 uppercase tracking-wider leading-relaxed">1-10-176, Mayur Marg,<br>Begumpet, Hyderabad,<br>Telangana 500016</p>
+              <p class="text-[11px] mt-1 uppercase tracking-wider leading-relaxed">1-10-176, Mayur Marg,<br>Begumpet,
+                Hyderabad,<br>Telangana 500016</p>
             </div>
           </div>
         </div>
-        
+
         <div class="md:col-span-3">
           <h3 class="text-white font-semibold uppercase tracking-widest text-[10px] mb-8">Newsletter</h3>
           <form class="flex flex-col">
             <div class="flex items-center border-b border-gray-700 pb-2">
-              <input class="bg-transparent border-none focus:ring-0 text-sm text-white placeholder-white w-full p-0" placeholder="Email Address" type="email">
+              <input class="bg-transparent border-none focus:ring-0 text-sm text-white placeholder-white w-full p-0"
+                placeholder="Email Address" type="email">
               <button class="text-white hover:text-gray-300 flex items-center justify-center ml-2" type="submit">
                 <span class="material-symbols-outlined text-lg">arrow_forward</span>
               </button>
@@ -1877,9 +2504,10 @@
         </div>
       </div>
     </div>
-    
+
     <div class="w-full border-t border-white/10">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] text-gray-500 uppercase tracking-widest">
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] text-gray-500 uppercase tracking-widest">
         <div class="text-center md:text-left">© 2024 Sapphire Intelligence Consulting. All rights reserved.</div>
         <nav aria-label="Legal">
           <ul class="flex flex-wrap justify-center md:justify-end items-center gap-x-8 gap-y-2">
@@ -1908,4 +2536,5 @@
     });
   </script>
 </body>
+
 </html>
