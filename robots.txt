@@ -1,0 +1,69 @@
+# ==========================================================================
+# Robots.txt for Sapphire Intel Consulting
+# SEO + AI Discovery Optimized
+# ==========================================================================
+
+# --------------------------------------------------------------------------
+# Default Search Engine Crawlers
+# --------------------------------------------------------------------------
+User-agent: *
+
+# Block non-public or internal infrastructure (only if these exist)
+Disallow: /config/
+Disallow: /private/
+Disallow: /internal/
+
+# Prevent crawling of tracking/query parameter URLs
+Disallow: /*?*utm_
+Disallow: /*?*id=
+
+# Public content allowed
+Allow: /
+Allow: /llms.txt
+
+
+# --------------------------------------------------------------------------
+# OpenAI Crawlers
+# --------------------------------------------------------------------------
+User-agent: GPTBot
+Allow: /
+Allow: /llms.txt
+
+User-agent: ChatGPT-User
+Allow: /
+Allow: /llms.txt
+
+
+# --------------------------------------------------------------------------
+# Anthropic Crawlers
+# --------------------------------------------------------------------------
+User-agent: ClaudeBot
+Allow: /
+Allow: /llms.txt
+
+
+# --------------------------------------------------------------------------
+# Perplexity Crawlers
+# --------------------------------------------------------------------------
+User-agent: PerplexityBot
+Allow: /
+Allow: /llms.txt
+
+
+# --------------------------------------------------------------------------
+# Optional Future AI Crawlers
+# --------------------------------------------------------------------------
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+
+# --------------------------------------------------------------------------
+# Sitemap
+# --------------------------------------------------------------------------
+Sitemap: https://www.sapphireintelconsulting.com/sitemap.xml
