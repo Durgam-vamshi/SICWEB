@@ -527,12 +527,12 @@
     }
 
     .hero-section {
-      min-height: 95vh;
+      min-height: max(100vh, 950px);
       overflow: hidden;
     }
 
     .hero-main {
-      min-height: 95vh;
+      min-height: max(100vh, 950px);
       padding-top: 50px;
       position: relative;
       z-index: 20;
@@ -540,7 +540,7 @@
 
     .hero-split {
       display: flex;
-      height: calc(95vh - 50px);
+      height: calc(max(100vh, 950px) - 50px);
     }
 
     .hero-left {
@@ -865,7 +865,7 @@
 
         <div class="dropdown">
           <span class="navbar-link dropdown-trigger">
-            Services
+            Industries
             <span class="material-symbols-outlined">expand_more</span>
           </span>
           <div class="dropdown-menu">
@@ -1078,7 +1078,7 @@
               </div>
             </div>
             <!-- D3 Node Diagram: SVG canvas managed by D3.js -->
-            <div id="node-diagram" style="position: absolute; inset: 0; z-index: 10; overflow: hidden;"></div>
+            <div id="node-diagram" class="absolute inset-3 md:inset-5 z-10 overflow-hidden" style="position: absolute;"></div>
 
           </div>
         </div>
@@ -1247,8 +1247,8 @@
           const cardSize = isMobileDiagram
             ? { width: mobileCardWidth, height: mobileCardWidth * 1.18, imageHeight: mobileCardWidth * 0.66 }
             : { width: 230, height: 267, imageHeight: 152 };
-          const orbitX = Math.min(width * 0.41, minSize * 0.6);
-          const orbitY = Math.min(height * 0.47, minSize * 0.54);
+          const orbitX = isMobileDiagram ? width * 0.35 : Math.max(260, width * 0.32);
+          const orbitY = isMobileDiagram ? height * 0.35 : Math.max(340, height * 0.35);
           const cardMargin = isMobileDiagram ? 10 : 20;
           // const cardLayer = svg.append('g').attr('class', 'hero-map-cards');
           const cardLayer = svg.append('g')
@@ -1597,9 +1597,9 @@
           </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-5">
+        <div class="grid grid-cols-1 lg:grid-cols-5 md:grid-cols-3 gap-5">
           <div
-            class="md:col-span-3 flex flex-col group overflow-hidden rounded-xl h-[400px] shadow-lg card-hover-effect relative max-w-[280px] mx-auto w-full">
+            class="flex flex-col group overflow-hidden rounded-xl h-[400px] shadow-lg card-hover-effect relative w-full">
             <div class="relative w-full h-full">
               <img alt="Healthcare"
                 class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -1619,7 +1619,7 @@
           </div>
 
           <div
-            class="md:col-span-3 flex flex-col group overflow-hidden rounded-xl h-[400px] shadow-lg card-hover-effect relative max-w-[280px] mx-auto w-full">
+            class="flex flex-col group overflow-hidden rounded-xl h-[400px] shadow-lg card-hover-effect relative w-full">
             <div class="relative w-full h-full">
               <img alt="Lifesciences"
                 class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -1639,7 +1639,7 @@
           </div>
 
           <div
-            class="md:col-span-3 flex flex-col group overflow-hidden rounded-xl h-[400px] shadow-lg card-hover-effect relative max-w-[280px] mx-auto w-full">
+            class="flex flex-col group overflow-hidden rounded-xl h-[400px] shadow-lg card-hover-effect relative w-full">
             <div class="relative w-full h-full">
               <img alt="D2C Brands"
                 class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
@@ -1660,7 +1660,7 @@
           </div>
 
           <div
-            class="md:col-span-3 flex flex-col group overflow-hidden rounded-xl h-[400px] shadow-lg card-hover-effect relative max-w-[280px] mx-auto w-full">
+            class="flex flex-col group overflow-hidden rounded-xl h-[400px] shadow-lg card-hover-effect relative w-full">
 
 
             <div class="relative w-full h-full">
@@ -1691,7 +1691,7 @@
 
 
           <div
-            class="md:col-span-3 flex flex-col group overflow-hidden rounded-xl h-[400px] shadow-lg card-hover-effect relative max-w-[280px] mx-auto w-full">
+            class="flex flex-col group overflow-hidden rounded-xl h-[400px] shadow-lg card-hover-effect relative w-full">
 
             <div class="relative w-full h-full">
 
@@ -1873,7 +1873,7 @@
           <div class="hidden md:block h-px bg-white/20 flex-grow mr-8"></div>
           <a href="services.html"
             class="bg-[#2563EB] text-white px-8 py-3 rounded-lg font-semibold flex items-center gap-2 hover:bg-[#1d4ed8] transition-colors group shadow-lg shadow-[#2563EB]/20">
-            View Detailed Services
+            View Detailed Industries
             <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
           </a>
         </div>
